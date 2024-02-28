@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hammersmith+One&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hammersmith+One&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Mega:wght@100..900&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+
+body {
+    background-image: url("../../../assets/img/re.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    width: 100%;
+    height: 22vh;
+
+    display: flex;
+    align-items: end;
+}
+
+.logo {
+    width: 10%;
+    margin-bottom: 1.2vw;
+}
+
+.title {
+    width: 80%;
+    justify-content: center;
+    color: white;
+    display: flex;
+    align-items: end;
+    font-family: "Hammersmith One", sans-serif;
+}
+
+.title h1 {
+    margin-top: 10px;
+    font-size: 5vw;
+}
+
+.title2 {
+    display: flex;
+    color: white;
+}
+
+.back {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.back a {
+    text-decoration: none;
+    margin-left: 2.5vw;
+    color: white;
+    padding: 3%;
+    border-radius: 10px;
+    background-color: #574940;
+}
+
+.txt {
+    font-family: "Lexend Mega", sans-serif;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.txt h2 {
+    font-size: 2vw;
+}
+
+main {
+    margin-top: 4vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 50%;
+}
+
+.carto {
+    width: 33%;
+    background-color: rgba(245, 245, 239, 0.8);
+    height: 80%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.mb-3 {
+    width: 26.5vw;
+
+}
+
+.form input {
+    width: 100%;
+    height: 2.6vw;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.register {
+    margin-top: 1.5vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+label{
+    font-family: "Lexend Mega", sans-serif;
+}

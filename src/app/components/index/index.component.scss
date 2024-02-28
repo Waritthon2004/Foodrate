@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hammersmith+One&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+body {
+    background-image: url("../../../assets/img/login.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-position-y: -100px;
+}
+
+header {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight:bold;
+    font-style: normal;
+    display: flex;
+    color: white;
+    width: 100%;
+    text-align: center;
+    height: 13vh;
+
+}
+
+.text {
+    width: 82%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+main {
+    font-family: "Hammersmith One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 47vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+main h1 {
+    font-size: 14vh;
+}
+
+.btn a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 66.2px;
+    width: 221.8px;
+    background-color: white;
+    color: black;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: .4s;
+}
+.btn1 :hover{
+    background-color: black;
+    color: aliceblue;
+}
