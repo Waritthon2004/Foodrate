@@ -4,6 +4,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { VotenologinComponent } from './components/votenologin/votenologin.component';
 import { StandingComponent } from './components/standing/standing.component';
+import { VoteloginComponent } from './components/votelogin/votelogin.component';
 
 
 export const routes: Routes = [
@@ -11,5 +12,6 @@ export const routes: Routes = [
     {path:'regis',component:RegisterComponent},
     {path:'login',component:LoginComponent},
     {path:'guess',component:VotenologinComponent},
-    {path:'stand',component:StandingComponent}
+    {path:'stand',component:StandingComponent},
+    {path:'user',component:VoteloginComponent},
 ];
