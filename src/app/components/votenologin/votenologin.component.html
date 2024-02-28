@@ -1,26 +1,15 @@
-<p>votenologin works!</p>
-<nav
-  style="
-    width: 100%;
-    height: 10vh;
-    background-color: #c18d68;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  "
->
-  <div
-    style="
-      width: 60%;
-      display: flex;
-      color: white;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 2%;
-    "
-  >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+  <div class="innav">
     <div style="width: 15%; height: 10%">
-      <img src="../../../assets/logo.png" alt="" width="100%" height="100%" />
+      <img src="../../../assets/img/logo-modified.png" alt="" width="100%" height="100%" />
     </div>
     <div style="font-size: 2vw">Temporary user</div>
     <div style="width: 30%; height: 5vw">
@@ -30,112 +19,35 @@
       ></mat-icon>
     </div>
   </div>
-  <div
-    style="
-      display: flex;
-      width: 40%;
-      color: white;
-      gap: 2%;
-      justify-content: flex-end;
-      margin-right: 2%;
-    "
-  >
-    <div
-      style="
-        width: 20vh;
-        height: 5vh;
-        border-radius: 20px;
-        font-size: 1.5vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #6b4e28;
-      "
-    >
+  <div class="n2">
+    <div class="n3">
       <a routerLink="/standing" style="text-decoration: none; color: white;">STANDING</a>
     </div>
     <div style="font-size: 2vw; font-weight: bolder; color: black">|</div>
-    <div
-      style="
-        height: 5vh;
-        font-size: 1.5vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      "
-    >
+    <div class="n4">
       <div>LOGIN</div>
     </div>
   </div>
 </nav>
-<div style="width: 100%; height: 90vh; background-color: #F5F5EF;">
-<div
-  class="hero"
-  style="
-    width: 100%;
-    height: 4vw;
-    padding-top: 2%;
-    display: flex;
-    justify-content: space-between;
-  "
->
-  <div
-    style="
-      width: 20vh;
-      height: 5vh;
-      border-radius: 20px;
-      font-size: 2vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #6b4e28;
-      color: white;
-      margin-left: 2%;
-    "
-  >
-    <div>back</div>
+<header>
+  <div class="back">
+    <a  href=""><h2>BACK</h2></a>
   </div>
-
-  <div
-    style="
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      font-size: 2.5vw;
-      font-weight: 600;
-    "
-  >
-    WHICH MENU IS BETTER ?
+  <div class="title">
+    <div>
+      <h1>WHICH MENU IS BETTER?</h1>
+      <p>Choose the food you like most from these two menus.</p>
+    </div>
   </div>
-</div>
-
-<div
-  class="con"
-  style="
-    width: 72%;
-    height: 5vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    margin-top: 2%;
-  "
->
-  <div style="font-size: x-large">
-    Choose the food you like most from these two menu.
+</header>
+<main>
+  <div class="img1" style="background-image: url('../../../assets/img/italy-pasta-traditional-foods.jpg');">
   </div>
-</div>
+  <h1>OR</h1>
+  <div class="img1" style="background-image: url('../../../assets/img/sushi.jpg');">
+  </div>
+</main>
 
-<body style="width: 100%; height: 30vw; display: flex; justify-content: center; align-items: center; gap: 2%;">
-    
-    <div style="width: 20%; height: 60%;">
-        <img src="../../../assets/food1.png" alt="" width="100%" height="100%">
-    </div>
-    <div style="font-size: 2vw;">
-        OR 
-    </div>
-    <div style="width: 20%; height: 60%;"> 
-        <img src="../../../assets/food2.png" alt="" width="100%" height="100%">
-    </div>
+
 </body>
-</div>
+</html>
