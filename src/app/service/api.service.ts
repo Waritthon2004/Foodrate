@@ -11,9 +11,10 @@ export class ApiService {
 
 
   //Login 
-  public async checkLogin(options?: any) {
+  public async checkLogin(options?: any) {    
     let url = this.constants.API_ENDPOINT + '/user/check';
     const response = await lastValueFrom(this.http.post(url, options));
+
     return response ;
   }
 
