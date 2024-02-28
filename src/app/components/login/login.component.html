@@ -31,22 +31,23 @@
     </div>
     <main>
         <div class="carto">
-            <div class="form">
+            <form  [formGroup]="myForm" (ngSubmit)="submitForm()" class="form">
                 <div >
                     <div class="mb-3">
-                        <label for="name" class="form-label">EMAIL</label><br>
-                        <input class="input" type="text" id="name">
+                        <label for="email" class="form-label">EMAIL</label><br>
+                        <input class="input" type="text" id="email"  formControlName="email">
                     </div>         
                     <div class="mb-3">
                         <label for="formFile" class="form-label">PASSWORD</label>
-                    <input class="input" type="password">
+                    <input class="input" type="password" formControlName="password">
                     </div>               
                    <div class="register">
-                    <a href="" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">LOGIN</a>
+                    <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">LOGIN</button>
 
                    </div>
-                </div>            
-            </div>
+                </div>
+                          
+            </form>
            
         </div>
     </main>
