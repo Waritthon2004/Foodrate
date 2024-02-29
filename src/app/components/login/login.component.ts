@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
 
   async Checklogin(jsonData: any) {
     this.bool = await this.api.checkLogin(jsonData);
-    console.log(this.bool);
+    console.log(typeof this.bool.UID);
     
-    if(typeof this.bool.UID.typenumeber){
+    if(typeof this.bool.UID === 'number'){
         console.log("yayay");
     }
     else{
