@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { VotenologinComponent } from './components/votenologin/votenologin.component';
 import { StandingComponent } from './components/standing/standing.component';
 import { VoteloginComponent } from './components/votelogin/votelogin.component';
+import { UploadComponent } from './components/upload/upload.component';
 
 
 export const routes: Routes = [
@@ -14,4 +15,5 @@ export const routes: Routes = [
     {path:'guess',component:VotenologinComponent},
     {path:'stand',component:StandingComponent},
     {path:'user',component:VoteloginComponent},
+    {path:'upload',component:UploadComponent}
 ];

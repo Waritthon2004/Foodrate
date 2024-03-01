@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { ApiService } from '../../service/api.service';
 export class LoginComponent implements OnInit {
   myForm!: FormGroup;
   bool: any;
-  constructor(private formBuilder: FormBuilder, private api: ApiService) {}
+  constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router) {}
 
   ngOnInit(): void {
     this.myForm = this.formBuilder.group({
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
     console.log(typeof this.bool.UID);
     
     if(typeof this.bool.UID === 'number'){
-        console.log("yayay");
+        console.log(this.bool.UID);
+        this.route.navigate(['/user'])
     }
     else{
       console.log("baba");
