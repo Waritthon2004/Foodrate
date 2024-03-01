@@ -23,4 +23,12 @@ export class ApiService {
     return response;
   }
 
+
+  //get image
+ public async getImage() {    
+    let url = this.constants.API_ENDPOINT + '/image';
+    const response = await lastValueFrom(this.http.get(url));
+
+    return response ;
+  }
 }
