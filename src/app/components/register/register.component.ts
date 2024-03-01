@@ -14,8 +14,8 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder : FormBuilder,private api : ApiService){}
   ngOnInit(): void {
     this.myform = this.formBuilder.group({
-      FirstName: [''],
-      LastName:[''],
+      Firstname: [''],
+      Lastname:[''],
       Email:[''],
       Password: [''],
     });
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     console.log(formData);
     
     const response =  await this.api.register(formData);
-    //console.log(response);
+    console.log(response);
     
   }
 
