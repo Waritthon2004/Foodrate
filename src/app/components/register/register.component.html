@@ -33,25 +33,25 @@
             </div>
             <div class="left">
                 <div class="carto">
-                    <div class="form">
+                    <form (ngSubmit)="submitForm()" [formGroup]="myform" class="form">
                         <div >
                             <div class="mb-3">
                                 <label for="name" class="form-label">NAME</label><br>
-                                <input class="input" type="text" id="name">
+                                <input class="input" type="text" id="name" formControlName="FirstName">
                             </div>
                            
                             
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">LASTNAME</label>
-                            <input class="input" type="text">
+                            <input class="input" type="text" formControlName="LastName">
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">EMAIL</label><br>
-                                <input class="input" type="text">
+                                <input class="input" type="text" formControlName="Email">
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">PASSWORD</label><br>
-                                <input class="input" type="text">
+                                <input class="input" type="text" formControlName="Password">
                             </div>
                            
     
@@ -60,14 +60,14 @@
                                 <input class="form-control" type="file" id="formFile">
                               </div>
                            <div class="register">
-                            <a href="" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">REGISTER</a>
+                            <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">REGISTER</button>
     
                            </div>
                         </div>
                         
                         
                         
-                    </div>
+                    </form>
                    
                 </div>
                 
