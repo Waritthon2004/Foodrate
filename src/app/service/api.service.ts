@@ -26,4 +26,13 @@ export class ApiService {
 
     return response ;
   }
+
+  //update point 
+  public async putPoint(options?: any) {    
+    let url = this.constants.API_ENDPOINT + '/image';
+    const response = await lastValueFrom(this.http.put(url,options));
+
+    return response ;
+  }
+
 }
