@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Constants } from '../config/constants';
 import { HttpClient } from '@angular/common/http';
-import { lastValueFrom } from 'rxjs';
+import { last, lastValueFrom } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +16,11 @@ export class ApiService {
     const response = await lastValueFrom(this.http.post(url, options));
 
     return response ;
+  }
+  public async register(option : any) {
+    let url = this.constants.API_ENDPOINT+'/user';
+    const response = await lastValueFrom(this.http.post(url,option))
+    return response;
   }
 
 
