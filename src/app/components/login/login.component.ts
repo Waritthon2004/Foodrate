@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['/user'])
     }
     else{
-      console.log("baba");
+      console.log("wrong");
       
     }
   }
