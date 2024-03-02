@@ -37,27 +37,27 @@
                         <div >
                             <div class="mb-3">
                                 <label for="name" class="form-label">NAME</label><br>
-                                <input class="input"  required="กรุณากรอกให้ครบ"  type="text" id="name" formControlName="Firstname" required>
+                                <input class="input"  required="กรุณากรอกให้ครบ"  type="text" id="name" formControlName="Firstname" >
                             </div>
                            
                             
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">LASTNAME</label>
-                            <input class="input" required="กรุณากรอกให้ครบ" type="text" formControlName="Lastname" required >
+                            <input class="input" required="กรุณากรอกให้ครบ" type="text" formControlName="Lastname"  >
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">EMAIL</label><br>
-                                <input class="input"  required="กรุณากรอกให้ครบ"  type="text" formControlName="Email" required>
+                                <input class="input"  required="กรุณากรอกให้ครบ"  type="text" formControlName="Email" >
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">PASSWORD</label><br>
-                                <input class="input"   type="password" formControlName="Password" required>
+                                <input class="input"   type="password" formControlName="Password" >
                             </div>
                            
     
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">IMAGE</label>
-                                <input class="form-control"   type="file" id="formFile">
+                                <input class="form-control"   type="file"    id="formFile" (change)="onFileChange($event)">
                               </div>
                            <div class="register">
                             <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">REGISTER</button>

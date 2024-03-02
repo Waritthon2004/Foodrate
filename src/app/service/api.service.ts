@@ -20,11 +20,13 @@ export class ApiService {
 
     return response ;
   }
-  public async register(option : any) {
-    let url = this.constants.API_ENDPOINT+'/user';
-    const response = await lastValueFrom(this.http.post(url,option))
-    return response;
-  }
+//register 
+public async register(option : any) {
+  let url = this.constants.API_ENDPOINT+'/user';
+  const response = await lastValueFrom(this.http.post(url, option))
+  return response;
+}
+
 
 
   //get image
