@@ -11,6 +11,7 @@ import { ApiService } from '../../service/api.service';
   styleUrl: './upload.component.scss'
 })
 export class UploadComponent implements OnInit {
+
 img: any;
 data : any;
   constructor(private api:ApiService){}
@@ -19,14 +20,17 @@ data : any;
   }
   async selectIMG(){
     const response = await this.api.getImage();
-    this.img = response;
-    
-    
+    this.img = response; 
     if(this.img.length != 5){
-      for(let i = 0;i<5-this.img.length;i++){
-         this.img.push({url: null});
+      for(let i = this.img.length;i!=5;i++){
+        this.img.push({url: null});
     }
   }
   console.log(this.img);
 }
+async delete(id:any) {
+  const response = await this.api.deleteIMG(id);
+  this.selectIMG();
+  
+  }
 }

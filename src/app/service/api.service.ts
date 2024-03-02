@@ -48,6 +48,20 @@ export class ApiService {
 
     return response ;
   }
+  //select last UID
+  public async lastUID(options?: any) {    
+    let url = this.constants.API_ENDPOINT + '/upload';
+    const response = await lastValueFrom(this.http.get(url,options));
+
+    return response ;
+  }
+  //delete img
+  public async deleteIMG(options?: any) {    
+    let url = this.constants.API_ENDPOINT + '/image/'+options;
+    const response = await lastValueFrom(this.http.delete(url));
+
+    return response ;
+  }
 
 }
 
