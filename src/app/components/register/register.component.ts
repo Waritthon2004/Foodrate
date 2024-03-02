@@ -1,39 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
-import { HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 @Component({
-  selector: 'app-register',
+  selector: 'app-register',  
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  myform! : FormGroup;
-  data : any;
-  constructor(private formBuilder : FormBuilder,private api : ApiService,private http: HttpClient){}
+
+  myform!: FormGroup;
+  formData: FormData = new FormData();
+
+  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
+  
   ngOnInit(): void {
     this.myform = this.formBuilder.group({
       Firstname: [''],
-      Lastname:[''],
-      Email:[''],
+      Lastname: [''],
+      Email: [''],
       Password: [''],
+      File: [''] 
     });
   }
- 
-  async submitForm(img: HTMLInputElement) {
-    const formData = this.myform.value;
-    console.log(formData);
-    
-    let response =  await this.api.register(formData);
-   console.log(response);
 
+  async submitForm() {
+    this.formData.append('Firstname', this.myform.get('Firstname')!.value);
+    this.formData.append('Lastname', this.myform.get('Lastname')!.value);
+    this.formData.append('Email', this.myform.get('Email')!.value);
+    this.formData.append('Password', this.myform.get('Password')!.value);
+    this.formData.forEach((value, key) => {
+      console.log(key + ', ' + value);
+    });
     
-  //  const uid =  await this.api.lastUID();
-  //   console.log(uid);
-    // response = await this.api.imageUser(uid)
+    await this.api.register(this.formData);
   }
   // onChangeFile(event: any) {
   //   const file  = event.target.files[0];
@@ -45,4 +47,8 @@ export class RegisterComponent implements OnInit {
 
   // }
 
+  async onFileChange($event: Event) {
+    const file = ($event.target as HTMLInputElement).files![0];
+    this.formData.append('file', file);
+  }
 }
