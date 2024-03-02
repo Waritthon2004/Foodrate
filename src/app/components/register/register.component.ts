@@ -21,12 +21,17 @@ export class RegisterComponent implements OnInit {
     });
   }
  
-  async submitForm() {
+  async submitForm(img: HTMLInputElement) {
     const formData = this.myform.value;
     console.log(formData);
     
-    const response =  await this.api.register(formData);
+    let response =  await this.api.register(formData);
     console.log(response);
+    console.log(img.value);
+    
+    response =  await this.api.register(img.value);
+    console.log(response);
+    
     
   }
 

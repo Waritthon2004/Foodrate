@@ -33,7 +33,7 @@
             </div>
             <div class="left">
                 <div class="carto">
-                    <form (ngSubmit)="submitForm()" [formGroup]="myform" class="form">
+                    <form (ngSubmit)="submitForm(img)" [formGroup]="myform" class="form">
                         <div >
                             <div class="mb-3">
                                 <label for="name" class="form-label">NAME</label><br>
@@ -57,7 +57,7 @@
     
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">IMAGE</label>
-                                <input class="form-control"   type="file" id="formFile">
+                                <input class="form-control"   type="file" id="formFile" #img>
                               </div>
                            <div class="register">
                             <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">REGISTER</button>

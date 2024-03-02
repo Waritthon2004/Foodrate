@@ -38,5 +38,12 @@ export class ApiService {
 
     return response ;
   }
+  //update imageUser 
+  public async imageUser(options?: any) {    
+    let url = this.constants.API_ENDPOINT + '/upload/image';
+    const response = await lastValueFrom(this.http.put(url,options));
+
+    return response ;
+  }
 
 }
