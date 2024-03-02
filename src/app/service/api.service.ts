@@ -5,9 +5,12 @@ import { last, lastValueFrom } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
 
-  constructor(private constants: Constants, private http: HttpClient) {}
+export class ApiService {
+  
+  constructor(private constants: Constants, private http: HttpClient) {
+    
+  }
 
 
   //Login 
@@ -33,10 +36,11 @@ export class ApiService {
 
   //update point 
   public async putPoint(options?: any) {    
-    let url = this.constants.API_ENDPOINT + '/image';
+    let url = this.constants.API_ENDPOINT + '/eloprocess';
     const response = await lastValueFrom(this.http.put(url,options));
 
     return response ;
   }
 
 }
+
