@@ -8,6 +8,9 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: "Hammersmith One", sans-serif;
+    font-weight: 400;
+    font-style: normal
 }
 .innav{
     width: 60%;
@@ -17,6 +20,23 @@ nav{
     align-items: center;
     gap: 2%;
 }
+.menu {
+    font-weight: bolder;
+    font-size: 1.5vw;
+    display: flex;
+    gap: 2%;
+    width: 80%;
+}
+.menu a{
+    color: white;
+    text-decoration: none;
+    transition: .35s;
+    cursor: pointer;
+}
+.menu a:hover{
+    color: #513D31;
+    text-decoration: underline;
+} 
 .innav2{
     display: flex;
     width: 40%;
@@ -34,6 +54,7 @@ header {
     width: 15%;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .title {

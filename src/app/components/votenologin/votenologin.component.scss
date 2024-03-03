@@ -49,8 +49,12 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-
+.n4 a{
+    text-decoration: none;
+    color: white;
+}
 header {
     display: flex;
     width: 100%;

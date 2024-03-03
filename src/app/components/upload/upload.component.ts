@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import {   Route, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../service/api.service';
 @Component({
@@ -11,12 +11,14 @@ import { ApiService } from '../../service/api.service';
   styleUrl: './upload.component.scss'
 })
 export class UploadComponent implements OnInit {
-
-
 img: any;
 data : any;
-  constructor(private api:ApiService){}
+id : any;
+  constructor(private api:ApiService,private route:Router){}
   ngOnInit(): void {
+    this.id = localStorage.getItem('id');
+    console.log(this.id);
+    
     this.selectIMG();
   }
   async selectIMG(){
@@ -45,7 +47,8 @@ async delete(id:any) {
     const formData = new FormData();
     this.data = formData.append('file',file);
     const response = await this.api.insertPicture(formData);
-   this.selectIMG();
+    this.selectIMG(); 
+    this.route.navigate(['/upload'])
 
   }
   back() {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-register',  
   standalone: true,
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   myform!: FormGroup;
   formData: FormData = new FormData();
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router) { }
   
   ngOnInit(): void {
     this.myform = this.formBuilder.group({
@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
     });
     
     await this.api.register(this.formData);
+    this.route.navigate(['/login']);
   }
   // onChangeFile(event: any) {
   //   const file  = event.target.files[0];

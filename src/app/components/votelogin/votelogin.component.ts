@@ -12,9 +12,13 @@ import { ApiService } from '../../service/api.service';
 })
 export class VoteloginComponent implements OnInit {
   image: any;
+  id : any;
   constructor(private api: ApiService) {
   }
   ngOnInit(): void {
+    this.id = localStorage.getItem('id');
+    console.log(this.id);
+    
     this.loadimage();
   }
   async loadimage() {

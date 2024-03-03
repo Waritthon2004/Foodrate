@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
     console.log(typeof this.bool.UID);
     
     if(typeof this.bool.UID === 'number'){
-        console.log(this.bool.UID);
+        localStorage.setItem('id',this.bool.UID);
+        console.log(localStorage.getItem('id'));
         this.route.navigate(['/user'])
     }
     else{

@@ -13,17 +13,17 @@
           </div>
           <div class="menu">
             <a routerLink="">USER Name</a>
-            <a routerLink="">YOUR STATUS</a>
+            <a routerLink="">YOUR STATUS</a>  
             <a routerLink="/stand">STANDING</a>
             <a routerLink="/upload">UPLOAD/EDIT</a>
           </div>
         </div>
         <div class="innav2">
-          <div>
+          <a routerLink="/profile">
             <mat-icon class="login"
               fontIcon="person"
             ></mat-icon>
-          </div>
+          </a>
           <div style="font-size: 3.5vw; font-weight: bolder; color: black">|</div>
           <div>
             <mat-icon class="login"
@@ -44,10 +44,10 @@
   </div>
 </header>
 <main>
-  <div class="img1" style="background-image: url({{this.image.image1}});" (click)="Awin()">
+  <div class="img1" style="background-image: url({{this.image?.image1}});" (click)="Awin()">
   </div>
   <h1>OR</h1>
-  <div class="img1" style="background-image: url({{this.image.image2}});" (click)="Bwin()">
+  <div class="img1" style="background-image: url({{this.image?.image2}});" (click)="Bwin()">
   </div>
 </main>
 

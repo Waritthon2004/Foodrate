@@ -75,6 +75,12 @@ public async register(option : any) {
     const response = this.http.post(url,option).subscribe((res:any)=>{})
     return response;
   }
+  //get user by id
+  public async getUserById(option?:any){
+    let url = this.constants.API_ENDPOINT+'/user/'+option;
+    const response = await lastValueFrom(this.http.get(url));
+    return response;
+  }
 
 }
 

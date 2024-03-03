@@ -15,15 +15,15 @@
             <a routerLink="">USER Name</a>
             <a routerLink="">YOUR STATUS</a>
             <a routerLink="/stand">STANDING</a>
-            <a routerLink="/upload">UPLOAD/EDIT</a>
+            <a class="on" style="color: #6F1909; text-decoration: underline;" routerLink="/upload">UPLOAD/EDIT</a>
           </div>
         </div>
         <div class="innav2">
-          <div>
+          <a routerLink="/profile">
             <mat-icon class="login"
               fontIcon="person"
             ></mat-icon>
-          </div>
+          </a>
           <div style="font-size: 3.5vw; font-weight: bolder; color: black">|</div>
           <div>
             <mat-icon class="login"
@@ -37,7 +37,7 @@
     <a  (click)="back()"><h2>BACK</h2></a>
   </div>
   <div class="title">
-    <div style="font-size: 1vw; display: flex; justify-content: center; border-radius: 20px; margin-top: 1vw; width: 14vw; height: 5vw; background-color: white;   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+    <div  class="inTitle">
       <h1>UPLOAD/EDIT</h1>
     </div>
   </div>

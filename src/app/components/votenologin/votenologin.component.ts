@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 
 
 @Component({
   selector: 'app-votenologin',
   standalone: true,
-  imports: [MatIconModule, RouterModule],
+  imports: [MatIconModule, RouterModule,RouterLink],
   templateUrl: './votenologin.component.html',
   styleUrl: './votenologin.component.scss',
 })
