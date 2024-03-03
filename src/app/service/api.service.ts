@@ -35,6 +35,11 @@ public async register(option : any) {
     const response = await lastValueFrom(this.http.get(url));
     return response ;
   }
+  public async getImageAll() {    
+    let url = this.constants.API_ENDPOINT + '/image/all';
+    const response = await lastValueFrom(this.http.get(url));
+    return response ;
+  }
 
   //update point 
   public async putPoint(options?: any) {    
@@ -63,6 +68,12 @@ public async register(option : any) {
     const response = await lastValueFrom(this.http.delete(url));
 
     return response ;
+  }
+  //insert to picture
+  public insertPicture(option? : any){
+    let url = this.constants.API_ENDPOINT + '/upload';
+    const response = this.http.post(url,option).subscribe((res:any)=>{})
+    return response;
   }
 
 }

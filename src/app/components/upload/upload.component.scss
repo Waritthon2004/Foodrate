@@ -73,7 +73,22 @@ main {
     display: flex;
     justify-content: center;
 }
-
+.menu {
+    font-weight: bolder;
+    font-size: 1.5vw;
+    display: flex;
+    gap: 2%;
+    width: 80%;
+}
+.menu a{
+    color: white;
+    text-decoration: none;
+    transition: .35s;
+}
+.menu a:hover{
+    color: #513D31;
+    text-decoration: underline;
+}   
 .edit1 {
     margin-bottom: 1.2vw;
     height: 8vw;
@@ -87,8 +102,11 @@ main {
     width: 15%;
     background-position: center;
     background-size: cover;
+    transition: transform 0.3s ease; 
 }
-
+.img:hover {
+    transform: scale(1.1); 
+}
 .btn {
     margin-right: 5vw;
     display: flex;

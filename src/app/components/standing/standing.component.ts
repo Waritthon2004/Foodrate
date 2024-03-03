@@ -8,5 +8,8 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './standing.component.scss'
 })
 export class StandingComponent {
+back() {
+window.history.back();
+}
 
 }
