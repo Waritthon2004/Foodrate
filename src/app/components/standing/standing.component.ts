@@ -10,13 +10,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './standing.component.scss'
 })
 export class StandingComponent implements OnInit{
+
   data! : any;
   constructor(private api : ApiService){
-export class StandingComponent {
-back() {
-window.history.back();
+
 }
 
+  
+  back() {
+    window.history.back();
   }
 
   ngOnInit(): void {
@@ -34,5 +36,4 @@ window.history.back();
      }
      
   }
-  
 }
