@@ -40,8 +40,8 @@
   </header>
 
   <div
-    class="con">
-    <div class="st">
+    class="con" *ngFor="let i, of this.data " style="background-color: #f5f5ef">
+    <div class="st"  >
 
       <div style="display: flex">
         <div class="incon">
@@ -53,29 +53,13 @@
         <div class="incon2">
           <div class="incon3">
             <div style=" margin-right: 2%">1.)</div>
-            <div class="img1" style="background-image: url('../../../assets/img/italy-pasta-traditional-foods.jpg');">
+            <div class="img1" style="background-image: url({{i.url}});">
             </div>
           </div>
           <div style="margin-right: 2%;width: 20%;">145 คะแนน</div>
         </div>
       </div>
 
-      <div style="display: flex">
-        <div class="incon">
-          <div style="height: 100%; width: 100%">
-            <mat-icon class="icon" fontIcon="arrow_upward"></mat-icon>
-          </div>
-          <div>1</div>
-        </div>
-        <div class="incon2">
-          <div class="incon3">
-            <div style=" margin-right: 2%">1.)</div>
-            <div class="img1" style="background-image: url('../../../assets/img/italy-pasta-traditional-foods.jpg');">
-            </div>
-          </div>
-          <div style="margin-right: 2%;width: 20%;">145 คะแนน</div>
-        </div>
-      </div>
 
     </div>
        

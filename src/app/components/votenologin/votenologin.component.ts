@@ -20,10 +20,10 @@ export class VotenologinComponent implements OnInit {
   }
   async loadimage() {
     this.image = await this.api.getImage();
+    
   }
 
   async Awin() {
-
     let json = {
       win: 1,
       PID1: this.image.pid1,
@@ -38,7 +38,7 @@ export class VotenologinComponent implements OnInit {
   async Bwin() {
    
     let json = {
-      win: 0,
+      win: 2,
       PID1: this.image.pid1,
       PID2: this.image.pid2,
       point1: this.image.point1,

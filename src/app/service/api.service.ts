@@ -65,5 +65,13 @@ public async register(option : any) {
     return response ;
   }
 
+  //get image standing
+
+public async getstandind() {    
+    let url = this.constants.API_ENDPOINT + '/standing';
+    const response = await lastValueFrom(this.http.get(url));
+
+    return response ;
+  }
 }
 

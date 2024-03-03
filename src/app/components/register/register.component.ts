@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit {
     });
     
     await this.api.register(this.formData);
+    this.myform.reset();
   }
   // onChangeFile(event: any) {
   //   const file  = event.target.files[0];

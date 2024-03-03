@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path:'regis',component:RegisterComponent},
     {path:'login',component:LoginComponent},
     {path:'guess',component:VotenologinComponent},
-    {path:'stand',component:StandingComponent},
+    {path:'standing',component:StandingComponent},
     {path:'user',component:VoteloginComponent},
     {path:'upload',component:UploadComponent}
 ];
