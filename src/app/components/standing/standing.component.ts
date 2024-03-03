@@ -12,6 +12,10 @@ import { CommonModule } from '@angular/common';
 export class StandingComponent implements OnInit{
   data! : any;
   constructor(private api : ApiService){
+export class StandingComponent {
+back() {
+window.history.back();
+}
 
   }
 

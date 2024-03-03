@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../../service/api.service';
-import { LoginComponent } from '../login/login.component';
+
 
 @Component({
   selector: 'app-votenologin',
   standalone: true,
-  imports: [MatIconModule, RouterModule],
+  imports: [MatIconModule, RouterModule,RouterLink],
   templateUrl: './votenologin.component.html',
   styleUrl: './votenologin.component.scss',
 })
@@ -20,6 +20,7 @@ export class VotenologinComponent implements OnInit {
   }
   async loadimage() {
     this.image = await this.api.getImage();
+    console.log(this.image);
     
   }
 

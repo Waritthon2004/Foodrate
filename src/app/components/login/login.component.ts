@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
     console.log(typeof this.bool.UID);
     
     if(typeof this.bool.UID === 'number'){
-        console.log(this.bool.UID);
+        localStorage.setItem('id',this.bool.UID);
+        console.log(localStorage.getItem('id'));
         this.route.navigate(['/user'])
     }
     else{

@@ -11,19 +11,19 @@
           <div style="width: 15%; height: 10%">
             <img src="../../../assets/img/logo-modified.png" alt="" width="100%" height="100%" />
           </div>
-          <div style="font-weight: bolder; font-size: 1.5vw; display: flex; gap: 2%; width: 80%">
-            <div>USER Name</div>
-            <div>YOUR STATUS</div>
-            <div>STANDING</div>
-            <div>UPLOAD/EDIT</div>
+          <div class="menu">
+            <a routerLink="">USER Name</a>
+            <a routerLink="">YOUR STATUS</a>
+            <a routerLink="/stand">STANDING</a>
+            <a class="on" style="color: #6F1909; text-decoration: underline;" routerLink="/upload">UPLOAD/EDIT</a>
           </div>
         </div>
         <div class="innav2">
-          <div>
+          <a routerLink="/profile">
             <mat-icon class="login"
               fontIcon="person"
             ></mat-icon>
-          </div>
+          </a>
           <div style="font-size: 3.5vw; font-weight: bolder; color: black">|</div>
           <div>
             <mat-icon class="login"
@@ -34,10 +34,10 @@
       </nav>
 <header>
   <div class="back">
-    <a  href=""><h2>BACK</h2></a>
+    <a  (click)="back()"><h2>BACK</h2></a>
   </div>
   <div class="title">
-    <div style="font-size: 1vw; display: flex; justify-content: center; border-radius: 20px; margin-top: 1vw; width: 14vw; height: 5vw; background-color: white;   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+    <div  class="inTitle">
       <h1>UPLOAD/EDIT</h1>
     </div>
   </div>
@@ -49,7 +49,7 @@
             </div>
         <ng-template #xxx class="edit1">
             <div  style="height:6.8vw; align-items: center; display: flex; justify-content: center;">
-                <input type="file" >
+                <input type="file" (change)="onChangeFile($event)">
             </div>
             
         </ng-template>

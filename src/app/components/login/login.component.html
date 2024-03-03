@@ -22,7 +22,7 @@
     </header>
     <div class="title2">
         <div class="back">
-            <a href="">BACK</a>
+            <a routerLink="/">BACK</a>
         </div>
         <div class="txt">
             <h2>HANDCRAFTED GELATO</h2>
@@ -31,7 +31,7 @@
     </div>
     <main>
         <div class="carto">
-            <form  [formGroup]="myForm" (ngSubmit)="submitForm()" class="form">
+            <form  [formGroup]="myForm" (ngSubmit)="submitForm()"class="form">
                 <div >
                     <div class="mb-3">
                         <label for="email" class="form-label">EMAIL</label><br>
@@ -43,10 +43,8 @@
                     </div>               
                    <div class="register">
                     <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">LOGIN</button>
-
                    </div>
-                </div>
-                          
+                </div>       
             </form>
            
         </div>

@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-votelogin',
   standalone: true,
-  imports: [MatIconModule, RouterModule],
+  imports: [MatIconModule,RouterModule,RouterLink],
   templateUrl: './votelogin.component.html',
-  styleUrl: './votelogin.component.scss',
+  styleUrl: './votelogin.component.scss'
 })
-export class VoteloginComponent {
+export class VoteloginComponent implements OnInit {
   image: any;
-  constructor(private api: ApiService) {}
+  id : any;
+  constructor(private api: ApiService) {
+  }
   ngOnInit(): void {
+    this.id = localStorage.getItem('id');
+    console.log(this.id);
+    
     this.loadimage();
   }
   async loadimage() {
@@ -21,6 +26,7 @@ export class VoteloginComponent {
   }
 
   async Awin() {
+
     let json = {
       win: 1,
       PID1: this.image.pid1,
@@ -33,6 +39,7 @@ export class VoteloginComponent {
   }
 
   async Bwin() {
+   
     let json = {
       win: 0,
       PID1: this.image.pid1,

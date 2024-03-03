@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-register',  
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
   myform!: FormGroup;
   formData: FormData = new FormData();
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router) { }
   
   ngOnInit(): void {
     this.myform = this.formBuilder.group({
@@ -37,15 +38,13 @@ export class RegisterComponent implements OnInit {
     
     await this.api.register(this.formData);
     this.myform.reset();
+    this.route.navigate(['/login']);
   }
   // onChangeFile(event: any) {
   //   const file  = event.target.files[0];
   //   const formData = new FormData();
   //   this.data = formData.append('file',file);
   //  // this.http.put('http://localhost:3000/upload/image',formData).subscribe((res:any)=>{ })
-    
-
-
   // }
 
   async onFileChange($event: Event) {
