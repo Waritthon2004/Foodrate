@@ -14,7 +14,7 @@
           <div class="menu">
             <a routerLink="">USER Name</a>
             <a routerLink="">YOUR STATUS</a>  
-            <a routerLink="/stand">STANDING</a>
+            <a routerLink="/standing">STANDING</a>
             <a routerLink="/upload">UPLOAD/EDIT</a>
           </div>
         </div>
@@ -25,8 +25,8 @@
             ></mat-icon>
           </a>
           <div style="font-size: 3.5vw; font-weight: bolder; color: black">|</div>
-          <div>
-            <mat-icon class="login"
+          <div (click)="logout()">
+            <mat-icon class="login" 
               fontIcon="logout"
             ></mat-icon>
           </div>

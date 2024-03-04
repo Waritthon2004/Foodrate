@@ -35,10 +35,15 @@ export class RegisterComponent implements OnInit {
     this.formData.forEach((value, key) => {
       console.log(key + ', ' + value);
     });
-    
-    await this.api.register(this.formData);
-    this.myform.reset();
-    this.route.navigate(['/login']);
+    try {
+      await this.api.register(this.formData);
+      //this.myform.reset();
+      this.route.navigate(['/login']);  
+    } catch (error) {
+      
+    }
+
+   
   }
   // onChangeFile(event: any) {
   //   const file  = event.target.files[0];

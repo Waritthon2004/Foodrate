@@ -11,14 +11,14 @@
     </div>
   </div>
   <div class="innav2">
-    <div>
+    <div routerLink="/profile">
       <mat-icon class="login"
 
         fontIcon="person"
       ></mat-icon>
     </div>
     <div style="font-size: 3.5vw; font-weight: bolder; color: black">|</div>
-    <div>
+    <div (click)="logout()">
       <mat-icon class="login"
         fontIcon="logout"
       ></mat-icon>
@@ -56,7 +56,7 @@
             <div class="img1" style="background-image: url({{i.url}});">
             </div>
           </div>
-          <div style="margin-right: 2%;width: 20%;">145 คะแนน</div>
+          <div style="margin-right: 2%;width: 20%;">{{i.point}} คะแนน</div>
         </div>
       </div>
 
