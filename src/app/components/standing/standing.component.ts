@@ -11,7 +11,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './standing.component.scss'
 })
 export class StandingComponent implements OnInit{
-
+  name = localStorage.getItem('user');
   data! : any;
   constructor(private api : ApiService,private route:Router){
 

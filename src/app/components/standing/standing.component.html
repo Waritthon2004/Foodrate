@@ -1,12 +1,12 @@
 <nav>
   <div class="innav" >
-    <div style="width: 15%; height: 10%">
+    <a routerLink="/user"  style="width: 15%; height: 10%">
       <img src="../../../assets/img/logo-modified.png" alt="" width="100%" height="100%" />
-    </div>
+    </a>
     <div class="menu">
-      <a routerLink="">USER Name</a>
-      <a routerLink="">YOUR STATUS</a>
-      <a routerLink="/stand">STANDING</a>
+      <div style=" color: beige;">USER: {{name}}</div>
+      <a routerLink="/user">YOUR STATUS</a>
+      <a  style="color: #513D31;">STANDING</a>
       <a routerLink="/upload">UPLOAD/EDIT</a>
     </div>
   </div>

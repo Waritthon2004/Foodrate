@@ -12,7 +12,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './my-profile.component.scss'
 })
 export class MyProfileComponent implements OnInit{
-
+  name = localStorage.getItem('user');
   myform!: FormGroup;
   formData: FormData = new FormData();
   id : any;
@@ -34,8 +34,6 @@ export class MyProfileComponent implements OnInit{
     this.datas = [];
     const response = await this.api.getUserById(this.id)
     this.data = response;
-   
-
   }
   onFileChange($event: Event) {
   }
