@@ -22,7 +22,7 @@ id : any;
     this.selectIMG();
   }
   async selectIMG(){
-    const response = await this.api.getImageAll();
+    const response = await this.api.getImageById(this.id);
     this.img = response; 
     if(this.img.length != 5){
       for(let i = this.img.length;i!=5;i++){
@@ -46,12 +46,15 @@ async delete(id:any) {
     const file  = event.target.files[0];
     const formData = new FormData();
     this.data = formData.append('file',file);
-    const response = await this.api.insertPicture(formData);
+    const response = await this.api.insertPicture(formData,this.id);
     this.selectIMG(); 
-    this.route.navigate(['/upload'])
-
+    
   }
   back() {
     window.history.back();
+  }
+  logout() {
+    localStorage.clear();
+    this.route.navigate(['']);
   }
 }

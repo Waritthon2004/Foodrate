@@ -38,13 +38,12 @@ export class RegisterComponent implements OnInit {
     try {
       await this.api.register(this.formData);
       //this.myform.reset();
-      this.route.navigate(['/login']);
+      this.route.navigate(['/login']);  
     } catch (error) {
-      console.log("Error");
       
     }
+
    
-    
   }
   // onChangeFile(event: any) {
   //   const file  = event.target.files[0];

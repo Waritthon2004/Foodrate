@@ -70,8 +70,8 @@ public async register(option : any) {
     return response ;
   }
   //insert to picture
-  public insertPicture(option? : any){
-    let url = this.constants.API_ENDPOINT + '/upload';
+  public insertPicture(option? : any,id?:any){
+    let url = this.constants.API_ENDPOINT + '/upload?id='+id;
     const response = this.http.post(url,option).subscribe((res:any)=>{})
     return response;
   }
@@ -90,5 +90,11 @@ public async getstandind() {
 
     return response ;
   }
+  //get image by id
+ public async getImageById(option?:any){
+  let url = this.constants.API_ENDPOINT + '/image/all/'+option;
+    const response = await lastValueFrom(this.http.get(url));
+  return response ;
+ }
 }
 

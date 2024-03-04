@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import { ApiService } from '../../service/api.service';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-standing',
   standalone: true,
-  imports: [MatIconModule,CommonModule],
+  imports: [MatIconModule,CommonModule,RouterLink],
   templateUrl: './standing.component.html',
   styleUrl: './standing.component.scss'
 })
 export class StandingComponent implements OnInit{
 
   data! : any;
-  constructor(private api : ApiService){
+  constructor(private api : ApiService,private route:Router){
 
 }
 
@@ -35,5 +36,9 @@ export class StandingComponent implements OnInit{
         }
      }
      
+  }
+  logout() {
+    localStorage.clear();
+    this.route.navigate(['']);
   }
 }
