@@ -90,17 +90,21 @@ main {
     gap: 2%;
     width: 80%;
 }
+nav a{
+    
+        text-decoration: none ;
 
-.menu a {
+}
+.menu a{
     color: white;
-    text-decoration: none;
+    text-decoration: none ;
     transition: .35s;
 }
-
-.menu a:hover {
+.menu a:hover{
     color: #513D31;
     text-decoration: underline;
 }
+
 
 .edit1 {
     margin-bottom: 1.2vw;

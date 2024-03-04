@@ -59,7 +59,6 @@ public async register(option : any) {
   public async lastUID(options?: any) {    
     let url = this.constants.API_ENDPOINT + '/upload';
     const response = await lastValueFrom(this.http.get(url,options));
-
     return response ;
   }
   //delete img

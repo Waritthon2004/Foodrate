@@ -35,12 +35,20 @@ export class LoginComponent implements OnInit {
     
     if(typeof this.bool.UID === 'number'){
         localStorage.setItem('id',this.bool.UID);
-        console.log(localStorage.getItem('id'));
+       this.getData(localStorage.getItem('id'));
         this.route.navigate(['/user'])
     }
     else{
       console.log("wrong");
       
     }
+  }
+  data : any;
+  async getData(id:any){
+    const response = await this.api.getUserById(id)
+    this.data = response;
+    localStorage.setItem('user',this.data[0].Firstname)
+    console.log(localStorage.getItem('user'));
+    
   }
 }

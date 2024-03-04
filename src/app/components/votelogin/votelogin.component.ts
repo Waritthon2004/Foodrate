@@ -15,6 +15,7 @@ export class VoteloginComponent implements OnInit {
 
   image: any;
   id : any;
+  name = localStorage.getItem('user');
   constructor(private api: ApiService,private route : Router) {
   }
   ngOnInit(): void {
