@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -14,21 +14,23 @@ export class RegisterComponent implements OnInit {
 
   myform!: FormGroup;
   formData: FormData = new FormData();
-
+  check! : any;
   constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router) { }
   
   ngOnInit(): void {
     this.myform = this.formBuilder.group({
-      Firstname: [''],
-      Lastname: [''],
-      Email: [''],
-      Password: [''],
-      File: [''] 
+      Firstname: ['',Validators.required],
+      Lastname: ['', Validators.required],
+      Email: ['', Validators.required],
+      Password: ['', Validators.required],
+      File: ['']
     });
   }
 
   async submitForm() {
-    this.formData.append('Firstname', this.myform.get('Firstname')!.value);
+    
+    if (this.myform.valid) {
+      this.formData.append('Firstname', this.myform.get('Firstname')!.value);
     this.formData.append('Lastname', this.myform.get('Lastname')!.value);
     this.formData.append('Email', this.myform.get('Email')!.value);
     this.formData.append('Password', this.myform.get('Password')!.value);
@@ -36,12 +38,24 @@ export class RegisterComponent implements OnInit {
       console.log(key + ', ' + value);
     });
     try {
-      await this.api.register(this.formData);
-      //this.myform.reset();
-      this.route.navigate(['/login']);  
+       this.check =await this.api.register(this.formData);
+   
+       
+      if(this.check.Err == "false"){
+        console.log(this.check.Err );
+        location.reload();
+      }
+      else{
+        this.route.navigate(['/login']);  
+      }
+      
     } catch (error) {
       
     }
+    } else {
+      alert("กรุณากรอกข้อมูลให้ครบ");
+    }
+    
 
    
   }
