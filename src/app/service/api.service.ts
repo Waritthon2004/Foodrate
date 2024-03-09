@@ -95,5 +95,13 @@ public async getstandind() {
     const response = await lastValueFrom(this.http.get(url));
   return response ;
  }
-}
+
+   //get * date
+   public async getFoodDate(option?:any){
+    let url = this.constants.API_ENDPOINT + '/image/date/'+option;
+      const response = await lastValueFrom(this.http.get(url));
+    return response ;
+   }
+
+} 
 

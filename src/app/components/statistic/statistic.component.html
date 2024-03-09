@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
     <nav>
@@ -31,25 +31,15 @@
           </div>
         </div>
       </nav>
-<header>
-  <!-- <div class="back">
-    <a  href=""><h2>BACK</h2></a>
-  </div> -->
-  <div class="title">
-    <div>
-      <h1>WHICH MENU IS BETTER?</h1>
-      <p>Choose the food you like most from these two menus.</p>
-    </div>
-  </div>
-</header>
-<main>
-  <div class="img1" style="border-radius: 10px; background-image: url({{this.image?.image1}});" (click)="Awin()">
-  </div>
-  <h1>OR</h1>
-  <div class="img1" style="border-radius: 10px;  background-image: url({{this.image?.image2}});" (click)="Bwin()">
-  </div>
-</main>
-
-
+      <header>
+        <div class="back">
+          <a  (click)="back()"><h2>BACK</h2></a>
+        </div>
+        <div class="title">
+          <div  class="inTitle">
+            <h1>HISTORYCAL DAILY STATISTIC</h1>
+          </div>
+        </div>
+      </header>
 </body>
 </html>

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../../service/api.service';
-import { routes } from '../../app.routes';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-votelogin',
   standalone: true,
@@ -15,13 +14,18 @@ export class VoteloginComponent implements OnInit {
 
   image: any;
   id : any;
-  name = localStorage.getItem('user');
+  name : any;
+  imgProfile:any;
+  
   constructor(private api: ApiService,private route : Router) {
   }
   ngOnInit(): void {
-    this.id = localStorage.getItem('id');
-    console.log(this.id);
+    const datepipe: DatePipe = new DatePipe('en-US')
+    let formattedDate = datepipe.transform(new Date(), 'dd-MMM-YYYY')
+    console.log(formattedDate);
     
+    this.id = localStorage.getItem('id');
+    this.getData(this.id);
     this.loadimage();
   }
   async loadimage() {
@@ -57,5 +61,14 @@ export class VoteloginComponent implements OnInit {
   logout() {
     localStorage.clear();
     this.route.navigate(['']);
+  }
+  data : any;
+  async getData(id:any){
+    const response = await this.api.getUserById(id)
+    this.data = response;
+    localStorage.setItem('user',this.data[0].Firstname)
+    this.name = localStorage.getItem('user');
+    localStorage.setItem('img',this.data[0].image);
+    this.imgProfile = localStorage.getItem('img');
   }
 }

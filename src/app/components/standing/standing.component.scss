@@ -45,6 +45,14 @@ nav{
     justify-content: flex-end;
     margin-right: 2%;
 }
+.innav2 a{
+    width: 12%;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    text-decoration: none;
+    color: white;
+}
 header {
     display: flex;
     width: 100%;
