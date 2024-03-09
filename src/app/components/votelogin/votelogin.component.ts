@@ -15,14 +15,25 @@ export class VoteloginComponent implements OnInit {
 
   image: any;
   id : any;
-  name = localStorage.getItem('user');
+  name : any;
   constructor(private api: ApiService,private route : Router) {
   }
   ngOnInit(): void {
     this.id = localStorage.getItem('id');
+    this.getData( this.id);
+  
     console.log(this.id);
-    
+    console.log(this.name);
     this.loadimage();
+  }
+  data : any;
+  async getData(id:any){
+    const response = await this.api.getUserById(id)
+    this.data = response;
+    localStorage.setItem('user',this.data[0].Firstname);
+    this.name = localStorage.getItem('user');
+    console.log(localStorage.getItem('user'));
+    
   }
   async loadimage() {
     this.image = await this.api.getImage();
