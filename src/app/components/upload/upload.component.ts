@@ -15,6 +15,7 @@ img: any;
 data : any;
 id : any;
 name = localStorage.getItem('user');
+imgProfile = localStorage.getItem('img')
   constructor(private api:ApiService,private route:Router){}
   ngOnInit(): void {
     this.id = localStorage.getItem('id');

@@ -7,6 +7,7 @@ import { StandingComponent } from './components/standing/standing.component';
 import { VoteloginComponent } from './components/votelogin/votelogin.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { StatisticComponent } from './components/statistic/statistic.component';
 
 
 export const routes: Routes = [
@@ -18,4 +19,5 @@ export const routes: Routes = [
     {path:'user',component:VoteloginComponent},
     {path:'upload',component:UploadComponent},
     {path:'profile',component:MyProfileComponent},
+    {path:'statistic',component:StatisticComponent},
 ];

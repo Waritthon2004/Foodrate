@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     
     if(typeof this.bool.UID === 'number'){
         localStorage.setItem('id',this.bool.UID);
-     
         this.route.navigate(['/user'])
     }
     else{
@@ -43,5 +42,5 @@ export class LoginComponent implements OnInit {
       
     }
   }
-
+ 
 }
