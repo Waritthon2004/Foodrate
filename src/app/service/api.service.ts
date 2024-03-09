@@ -103,5 +103,14 @@ public async getstandind() {
     return response ;
    }
 
+
+
+    //get * chart
+    public async getchart(option?:any){
+      let url = this.constants.API_ENDPOINT + '/eloprocess/chart';
+        const response = await lastValueFrom(this.http.post(url,option));
+      return response ;
+     }
+
 } 
 

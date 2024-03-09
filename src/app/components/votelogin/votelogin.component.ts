@@ -71,13 +71,6 @@ export class VoteloginComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['']);
   }
-  data : any;
-  async getData(id:any){
-    const response = await this.api.getUserById(id)
-    this.data = response;
-    localStorage.setItem('user',this.data[0].Firstname)
-    this.name = localStorage.getItem('user');
-    localStorage.setItem('img',this.data[0].image);
-    this.imgProfile = localStorage.getItem('img');
-  }
+  
+
 }
