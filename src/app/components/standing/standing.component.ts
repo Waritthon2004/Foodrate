@@ -54,31 +54,12 @@ export class StandingComponent implements OnInit{
       console.log(this.pv);
        
     }
-    // console.log(this.pv); 
-    // for (let index = 0; index < this.pv.length; index++) {
-    //   if(this.pv[index].PID==this.data[index].PID){
-    //     console.log(this.pv[index].rank);
-    //     break;
-    //   }
-    // }
- 
-    
-     
   }
   logout() {
     localStorage.clear();
     this.route.navigate(['']);
   }
-  // async selectDay(day: MatSelect) {
-  //   this.data = await this.api.getFoodDate(day.value)
-  //   if(this.data.length !=10){
-  //     for(let i = this.data.length ; i< 10;i++){
-  //       this.data.push("");
-  //     }
-  //  }
-  // }
-
-  
+ 
   check(PID:any){
      for (let index = 0; index < this.pv.length; index++) {
       if(this.pv[index].PID == PID){

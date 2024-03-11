@@ -19,7 +19,6 @@ imgProfile = localStorage.getItem('img')
   constructor(private api:ApiService,private route:Router){}
   ngOnInit(): void {
     this.id = localStorage.getItem('id');
-    console.log(this.id);
     
     this.selectIMG();
   }
@@ -50,7 +49,6 @@ async delete(id:any) {
     this.data = formData.append('file',file);
     const response = await this.api.insertPicture(formData,this.id);
     this.selectIMG(); 
-    
   }
   back() {
     window.history.back();
