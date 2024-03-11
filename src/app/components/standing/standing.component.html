@@ -1,3 +1,9 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
 <nav>
   <div class="innav">
     <a routerLink="/user" style="width: 15%; height: 10%">
@@ -35,37 +41,38 @@
       </div>
     </div>
   </header>
-  <div style="width: 100%; display: flex; justify-content: center;">
-    <div style="width: 64%; display: flex; justify-content: end;">
-      <mat-form-field style="width: 15%">
-        <mat-label>Select Date</mat-label>
-        <mat-select #day matNativeControl required [(ngModel)]="country" (ngModelChange)="selectDay(day)">
-          <mat-option value="0">to day</mat-option>
-          <mat-option value="1">1</mat-option>
-          <mat-option value="2">2</mat-option>
-          <mat-option value="3">3</mat-option>
-          <mat-option value="4">4</mat-option>
-          <mat-option value="5">5</mat-option>
-          <mat-option value="6">6</mat-option>
-          <mat-option value="7">7</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    
-  </div>
-  <div class="con" *ngFor="let i, of this.data " style="background-color: #f5f5ef">
+
+  <div class="con" *ngFor="let i of this.data; let index = index " style="background-color: #f5f5ef">
     <div class="st">
 
       <div style="display: flex">
         <div class="incon">
-          <div style="height: 100%; width: 100%">
-            <mat-icon class="icon" fontIcon="arrow_upward"></mat-icon>
+          <div style="height: 100%; width: 100%; display: flex; justify-content: center;align-items: center; ">
+            <span *ngIf="check(i.PID)-i.rank==0"
+             style="font-size: 3vw; color: gray;"  class="material-symbols-outlined">
+              remove
+              </span>
+            <span *ngIf="check(i.PID)-i.rank>0"
+             style="font-size: 3vw; color: rgb(9, 191, 21);"  class="material-symbols-outlined">
+             arrow_upward
+              </span>
+            <span *ngIf="check(i.PID)-i.rank<0"
+             style="font-size: 3vw; color: rgb(191, 64, 9);"  class="material-symbols-outlined">
+             arrow_downward
+              </span>
+            <span *ngIf="!check(i.PID)"
+             style="font-size: 3vw; color: gray;"  class="material-symbols-outlined">
+             remove
+              </span>
           </div>
-          <div>1</div>
+          <div *ngIf="check(i.PID)">
+            <div  style="color:rgb(9, 191, 21);" *ngIf="check(i.PID)-i.rank>0">{{check(i.PID)-i.rank}}</div> 
+           <div *ngIf="check(i.PID)-i.rank<0" style="color:rgb(191, 64, 9) ;">{{i.rank-check(i.PID)}}</div>
+        </div>
         </div>
         <div class="incon2">
           <div class="incon3">
-            <div style=" margin-right: 2%">1.)</div>
+            <div class="rank" style=" margin-right: 2%">{{index +1}}.)</div>
             <div class="img1" style="background-image: url({{i.url}});">
             </div>
           </div>

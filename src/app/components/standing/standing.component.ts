@@ -18,7 +18,7 @@ export class StandingComponent implements OnInit{
 
   name = localStorage.getItem('user');
   data : any;
-  country = "";
+  pv : any;
   constructor(private api : ApiService,private route:Router){
 
 }
@@ -29,7 +29,11 @@ export class StandingComponent implements OnInit{
   }
 
   ngOnInit(): void {
-   this.loaddata();
+  
+      this.loaddata();
+  //  this.selectPrevious();
+       
+   
   }
 
   async loaddata(){
@@ -39,20 +43,49 @@ export class StandingComponent implements OnInit{
           this.data.push("");
         }
      }
+
+     let result = await this.api.getPerviousDay()
+     this.pv = result;
+   
+     if(this.pv.length !=10 ){
+       for(let i = this.pv.length ; i< 10;i++){
+         this.pv.push("");
+       }
+      console.log(this.pv);
+       
+    }
+    // console.log(this.pv); 
+    // for (let index = 0; index < this.pv.length; index++) {
+    //   if(this.pv[index].PID==this.data[index].PID){
+    //     console.log(this.pv[index].rank);
+    //     break;
+    //   }
+    // }
+ 
+    
      
   }
   logout() {
     localStorage.clear();
     this.route.navigate(['']);
   }
-  async selectDay(day: MatSelect) {
-    this.data = await this.api.getFoodDate(day.value)
-    console.log(this.data);
-    
-    if(this.data.length !=10){
-      for(let i = this.data.length ; i< 10;i++){
-        this.data.push("");
+  // async selectDay(day: MatSelect) {
+  //   this.data = await this.api.getFoodDate(day.value)
+  //   if(this.data.length !=10){
+  //     for(let i = this.data.length ; i< 10;i++){
+  //       this.data.push("");
+  //     }
+  //  }
+  // }
+
+  
+  check(PID:any){
+     for (let index = 0; index < this.pv.length; index++) {
+      if(this.pv[index].PID == PID){
+        return this.pv[index].rank;
       }
-   }
+    }
   }
+  
+
 }
