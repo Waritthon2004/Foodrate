@@ -70,4 +70,5 @@ export class RegisterComponent implements OnInit {
     const file = ($event.target as HTMLInputElement).files![0];
     this.formData.append('file', file);
   }
+
 }
