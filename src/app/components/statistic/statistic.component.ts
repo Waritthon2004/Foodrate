@@ -52,15 +52,31 @@ export class StatisticComponent implements OnInit {
             label: 'Image',
             data: this.data.map((item: { point: number }) => item.point),
             fill: true,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0
+            borderColor: 'rgb(0, 0, 204)',
+            tension: 0,
+            backgroundColor : 'rgb(204,229,255)'
           }
         ]
       },
       options: {
         scales: {
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            ticks: {
+              font :{
+                size : 15
+              },color : 'rgb(0,102,102)'
+            , stepSize: 5
+            }
+          },  x: {
+            beginAtZero: true,
+            ticks: {
+              font :{
+                size : 15
+              }
+              ,color : 'rgb(51,0,102)'
+              
+            }
           }
         }
       }
