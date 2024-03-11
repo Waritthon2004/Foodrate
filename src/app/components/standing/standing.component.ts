@@ -37,23 +37,28 @@ export class StandingComponent implements OnInit{
   }
 
   async loaddata(){
-     this.data = await this.api.getstandind();
-     if(this.data.length !=10){
-        for(let i = this.data.length ; i< 10;i++){
-          this.data.push("");
-        }
-     }
-
-     let result = await this.api.getPerviousDay()
-     this.pv = result;
-   
-     if(this.pv.length !=10 ){
-       for(let i = this.pv.length ; i< 10;i++){
-         this.pv.push("");
-       }
-      console.log(this.pv);
-       
+    this.data = [];
+    this.pv = [];
+    
+    this.data = await this.api.getstandind();
+    if(this.data.length != 10){
+      for(let i = this.data.length; i < 10; i++){
+        this.data.push("");
+      }
     }
+  
+    let result = await this.api.getPerviousDay();
+    this.pv = result;
+  
+    if(this.pv.length != 10){
+      for(let i = this.pv.length; i < 10; i++){
+        this.pv.push("");
+      }
+    }
+    console.log(this.data);
+    
+    console.log(this.pv);
+    
   }
   logout() {
     localStorage.clear();

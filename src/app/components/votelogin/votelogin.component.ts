@@ -33,6 +33,8 @@ export class VoteloginComponent implements OnInit {
     const response = await this.api.getUserById(id)
     this.data = response;
     localStorage.setItem('user',this.data[0].Firstname);
+    localStorage.setItem('img',this.data[0].image);
+    this.imgProfile = localStorage.getItem('img');
     this.name = localStorage.getItem('user');
     console.log(localStorage.getItem('user'));
     
