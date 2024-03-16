@@ -16,14 +16,15 @@ export class VoteloginComponent implements OnInit {
   id : any;
   name : any;
   imgProfile:any;
-  currentDate = new Date();
-  constructor(private api: ApiService,private route : Router) {
+  
+  constructor(private api: ApiService,private route : Router,public dialog: MatDialog) {
   }
   ngOnInit(): void {
 
     // const currentDate = new Date().toISOString().slice(0, 10);
     // console.log(currentDate);
-    console.log();
+    
+
     
     const datepipe: DatePipe = new DatePipe('en-US')
     let formattedDate = datepipe.transform(new Date(), 'YYYY-MM-dd')
