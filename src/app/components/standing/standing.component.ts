@@ -6,6 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-standing',
@@ -19,7 +20,8 @@ export class StandingComponent implements OnInit{
   name = localStorage.getItem('user');
   data : any;
   pv : any;
-  constructor(private api : ApiService,private route:Router){
+  user!:any;
+  constructor(private api : ApiService,private route:Router,private activedrout: ActivatedRoute){
 
 }
 
@@ -29,7 +31,11 @@ export class StandingComponent implements OnInit{
   }
 
   ngOnInit(): void {
-  
+    this.activedrout.queryParamMap.subscribe(params => {
+      this.user = params.get('user');
+    });
+    console.log(this.user);
+    
       this.loaddata();
   //  this.selectPrevious();
        
@@ -46,17 +52,14 @@ export class StandingComponent implements OnInit{
         this.data.push("");
       }
     }
-  
     let result = await this.api.getPerviousDay();
     this.pv = result;
-  
     if(this.pv.length != 10){
       for(let i = this.pv.length; i < 10; i++){
         this.pv.push("");
       }
     }
-    console.log(this.data);
-    
+    console.log(this.data); 
     console.log(this.pv);
     
   }
@@ -64,13 +67,14 @@ export class StandingComponent implements OnInit{
     localStorage.clear();
     this.route.navigate(['']);
   }
- 
+ //
   check(PID:any){
      for (let index = 0; index < this.pv.length; index++) {
       if(this.pv[index].PID == PID){
         return this.pv[index].rank;
       }
     }
+
   }
   
 

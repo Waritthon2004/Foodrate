@@ -16,12 +16,18 @@ export class VoteloginComponent implements OnInit {
   id : any;
   name : any;
   imgProfile:any;
-  
+  currentDate = new Date();
   constructor(private api: ApiService,private route : Router) {
   }
   ngOnInit(): void {
+
+    // const currentDate = new Date().toISOString().slice(0, 10);
+    // console.log(currentDate);
+    
+    console.log(this.currentDate);
+    
     const datepipe: DatePipe = new DatePipe('en-US')
-    let formattedDate = datepipe.transform(new Date(), 'dd-MMM-YYYY')
+    let formattedDate = datepipe.transform(new Date(), 'YYYY-MM-dd')
     console.log(formattedDate);
     
     this.id = localStorage.getItem('id');
