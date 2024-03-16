@@ -21,7 +21,8 @@
   </div>
   <div class="n2">
     <div class="n3">
-      <a routerLink="/standing" style="text-decoration: none; color: white;">STANDING</a>
+      <a [routerLink]="['/standing']" [queryParams]="{ user: 0 }" style="text-decoration: none; color: white;">STANDING</a>
+
     </div>
     <div style="font-size: 2vw; font-weight: bolder; color: black">|</div>
     <div class="n4">
