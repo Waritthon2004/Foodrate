@@ -46,27 +46,9 @@
     <!-- B WIN -->
 
     <div style="display: flex;" *ngIf="data.Win == 2">
-        <div style=" padding-right: 2%; padding-left: 2%; border-radius: 10px; width: 25vw; margin-right: 5vw;  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
-            <h2 style="width: 100%; display: flex; justify-content:  center;">WINNER IS </h2>
-            <div style="width: 100%; display: flex; justify-content:  center;">
-                <div style="width: 20vh; height: 20vh; 
-                background-image: url({{this.data?.URL2}});
-                background-position: center;
-                background-size: cover;
-                ">
-                </div>
-            </div>
-           
-            
-            <p>{{ this.data?.calb }}</p>
-            <p>rating :{{this.data?.rb}}</p>
-            <p>sum : {{this.data?.sum2}}</p>
-            <p>old point : {{this.data?.point2}}</p>
-            <p>new point : {{this.data?.newB}}</p>
-            
-        </div>
+       
     
-        <div style="width: 25vw; border-radius: 10px; padding-right: 2%; padding-left: 2%; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); ">
+        <div style="width: 25vw; border-radius: 10px; padding-right: 2%; padding-left: 2%; margin-right: 5vw;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); ">
             <h2 style=" width: 100%; display: flex; justify-content:  center;">LOSERR IS </h2>
             <div style="width: 100%; display: flex; justify-content:  center;">
                 <div style="width: 20vh; height: 20vh; 
@@ -84,6 +66,26 @@
             <p>old point : {{this.data?.point1}}</p>
             <p>new point : {{this.data?.newA}}</p>
            
+        </div>
+
+        <div style=" padding-right: 2%; padding-left: 2%; border-radius: 10px; width: 25vw;   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+            <h2 style="width: 100%; display: flex; justify-content:  center;">WINNER IS </h2>
+            <div style="width: 100%; display: flex; justify-content:  center;">
+                <div style="width: 20vh; height: 20vh; 
+                background-image: url({{this.data?.URL2}});
+                background-position: center;
+                background-size: cover;
+                ">
+                </div>
+            </div>
+           
+            
+            <p>{{ this.data?.calb }}</p>
+            <p>rating :{{this.data?.rb}}</p>
+            <p>sum : {{this.data?.sum2}}</p>
+            <p>old point : {{this.data?.point2}}</p>
+            <p>new point : {{this.data?.newB}}</p>
+            
         </div>
     </div>
 </mat-dialog-content>
