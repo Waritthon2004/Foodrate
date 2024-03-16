@@ -17,6 +17,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StandingComponent implements OnInit{
 
+
   name = localStorage.getItem('user');
   data : any;
   pv : any;
@@ -34,7 +35,7 @@ export class StandingComponent implements OnInit{
     this.activedrout.queryParamMap.subscribe(params => {
       this.user = params.get('user');
     });
-    console.log(this.user);
+  
     
       this.loaddata();
   //  this.selectPrevious();
@@ -76,6 +77,11 @@ export class StandingComponent implements OnInit{
     }
 
   }
-  
+  grap(idx: any) {
+    console.log(idx);
+    
+    this.route.navigate(['/statistic'], { queryParams: { id: idx } });
+}
 
+  
 }
