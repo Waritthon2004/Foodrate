@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Chart from 'chart.js/auto';
 import { ApiService } from '../../service/api.service';
 @Component({
@@ -14,10 +14,10 @@ import { ApiService } from '../../service/api.service';
 export class StatisticComponent implements OnInit {
   name = localStorage.getItem('user');
   imgProfile = localStorage.getItem('img')
-
+  id : any;
   data: any;
-  constructor(private route:Router, private api : ApiService){
-   
+  constructor(private route:Router, private api : ApiService,private activeatedRoute: ActivatedRoute){
+  
   }
   back() {
     window.history.back();
@@ -29,15 +29,15 @@ export class StatisticComponent implements OnInit {
 
 
   ngOnInit() {
-    
-    this.getData();
-    
-    
+    this.activeatedRoute.queryParams.subscribe(params => {
+      this.id = params['id'];
+      console.log(this.id);
+      this.getData();
+    });
   }
-
   async getData() {
-    this.data = await this.api.getchart();
-    console.log(this.data);
+  
+    this.data = await this.api.getchart(this.id);
     this.createChart();
   }
   
