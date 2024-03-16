@@ -68,7 +68,7 @@ public async register(option : any) {
 
     return response ;
   }
-  //insert to picture
+  //insert to pictur
   public insertPicture(option? : any,id?:any){
     let url = this.constants.API_ENDPOINT + '/upload?id='+id;
     const response = this.http.post(url,option).subscribe((res:any)=>{})
