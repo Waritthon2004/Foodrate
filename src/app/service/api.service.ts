@@ -7,7 +7,7 @@ import { last, lastValueFrom } from 'rxjs';
 })
 
 export class ApiService {
-  
+  cal : any;
   constructor(private constants: Constants, private http: HttpClient) {
     
   }

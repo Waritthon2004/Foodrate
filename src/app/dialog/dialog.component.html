@@ -1,0 +1,64 @@
+<mat-dialog-content>
+    <!-- A WIN -->
+    <div style="display: flex;">
+        <div>
+            <h2>WINNER IS </h2>
+            <div style="width: 20vh; height: 20vh;">
+                <img src="{{this.data?.URL1}}" alt="" width="100%" height="100%">
+            </div>
+            
+            <p>{{ this.data?.cala }}</p>
+            <p>rating :{{this.data?.ra}}</p>
+            <p>sum : {{this.data?.sum1}}</p>
+            <p>old point : {{this.data?.point1}}</p>
+            <p>new point : {{this.data?.newA}}</p>
+           
+        </div>
+    
+        <div>
+            <h2>LOSERR IS </h2>
+            <div style="width: 20vh; height: 20vh;">
+                <img src="{{this.data?.URL2}}" alt="" width="100%" height="100%">
+            </div>
+            
+            <p>{{ this.data?.calb }}</p>
+            <p>rating :{{this.data?.rb}}</p>
+            <p>sum : {{this.data?.sum2}}</p>
+            <p>old point : {{this.data?.point2}}</p>
+            <p>new point : {{this.data?.newB}}</p>
+            
+        </div>
+    </div>
+    
+    <!-- B WIN -->
+
+    <div style="display: flex;">
+        <div>
+            <h2>WINNER IS </h2>
+            <div style="width: 20vh; height: 20vh;">
+                <img src="{{this.data?.URL2}}" alt="" width="100%" height="100%">
+            </div>
+            
+            <p>{{ this.data?.calb }}</p>
+            <p>rating :{{this.data?.rb}}</p>
+            <p>sum : {{this.data?.sum2}}</p>
+            <p>old point : {{this.data?.point2}}</p>
+            <p>new point : {{this.data?.newB}}</p>
+            
+        </div>
+    
+        <div>
+            <h2>LOSERR IS </h2>
+            <div style="width: 20vh; height: 20vh;">
+                <img src="{{this.data?.URL1}}" alt="" width="100%" height="100%">
+            </div>
+            
+            <p>{{ this.data?.cala }}</p>
+            <p>rating :{{this.data?.ra}}</p>
+            <p>sum : {{this.data?.sum1}}</p>
+            <p>old point : {{this.data?.point1}}</p>
+            <p>new point : {{this.data?.newA}}</p>
+           
+        </div>
+    </div>
+</mat-dialog-content>

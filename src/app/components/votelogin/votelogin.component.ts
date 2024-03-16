@@ -3,10 +3,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { DatePipe } from '@angular/common';
+import {
+  MatDialog,
+  MatDialogRef,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog/dialog.component';
 @Component({
   selector: 'app-votelogin',
   standalone: true,
-  imports: [MatIconModule,RouterModule,RouterLink],
+  imports: [MatIconModule,RouterModule,RouterLink,MatDialogActions,
+    MatDialogClose,
+    MatDialogTitle,
+    MatDialogContent,DialogComponent],
   templateUrl: './votelogin.component.html',
   styleUrl: './votelogin.component.scss'
 })
@@ -17,7 +29,7 @@ export class VoteloginComponent implements OnInit {
   name : any;
   imgProfile:any;
   
-  constructor(private api: ApiService,private route : Router) {
+  constructor(private api: ApiService,private route : Router,public dialog: MatDialog) {
   }
   ngOnInit(): void {
     const datepipe: DatePipe = new DatePipe('en-US')
@@ -44,35 +56,48 @@ export class VoteloginComponent implements OnInit {
   }
 
   async Awin() {
-
     let json = {
       win: 1,
+      URL1: this.image.image1,
+      URL2: this.image.image2,
       PID1: this.image.pid1,
       PID2: this.image.pid2,
       point1: this.image.point1,
       point2: this.image.point2,
     };
-    await this.api.putPoint(json);
-    this.loadimage();
+
+    this.api.cal = await this.api.putPoint(json);
+    this.dialog.open(DialogComponent);
   }
 
   async Bwin() {
-   
     let json = {
       win: 2,
+      URL1: this.image.image1,
+      URL2: this.image.image2,
       PID1: this.image.pid1,
       PID2: this.image.pid2,
       point1: this.image.point1,
       point2: this.image.point2,
     };
+    console.log(json);
 
-    await this.api.putPoint(json);
-    this.loadimage();
+    this.api.cal = await this.api.putPoint(json);
+
+    this.dialog.open(DialogComponent);
   }
   logout() {
     localStorage.clear();
     this.route.navigate(['']);
   }
   
-
+  open(i: number) {
+    if (i == 1) {
+      this.Awin();
+    }
+    if (i == 2) {
+      this.Bwin();
+    }
+    this.loadimage();
+  }
 }
