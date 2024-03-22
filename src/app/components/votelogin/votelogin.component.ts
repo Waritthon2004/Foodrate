@@ -59,6 +59,8 @@ export class VoteloginComponent implements OnInit {
   }
   async loadimage() {
     this.image = await this.api.getImage();
+    console.log(this.image);
+    
   }
 
   async Awin() {
