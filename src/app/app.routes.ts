@@ -8,6 +8,8 @@ import { VoteloginComponent } from './components/votelogin/votelogin.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
+import { AllUserComponent } from './components/all-user/all-user.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 export const routes: Routes = [
@@ -19,5 +21,7 @@ export const routes: Routes = [
     {path:'user',component:VoteloginComponent},
     {path:'upload',component:UploadComponent},
     {path:'profile',component:MyProfileComponent},
+    {path:'admin',component:AllUserComponent},
     {path:'statistic',component:StatisticComponent},
+    {path:'userProfile/:id',component:UserProfileComponent},
 ];
