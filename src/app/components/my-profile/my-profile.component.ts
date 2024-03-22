@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-my-profile',
   standalone: true,
@@ -18,7 +18,7 @@ export class MyProfileComponent implements OnInit{
   id : any;
   data : any;
   datas : any;
-  constructor(private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute ){}
+  constructor(private route : Router,private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute ){}
   ngOnInit(): void {
     this.id = localStorage.getItem('id');
     this.myform = this.formBuilder.group({
@@ -42,5 +42,9 @@ export class MyProfileComponent implements OnInit{
   back() {
     window.history.back();
   }  
+  logout(){
+    localStorage.clear();
+    this.route.navigate(['']);
+  }
 
 }

@@ -37,6 +37,8 @@ export class AllUserComponent implements OnInit{
 
  
 logout() {
+  localStorage.clear();
+  this.route.navigate(['']);
 }
 async page(page: any) {
   let json= {
