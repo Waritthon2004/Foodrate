@@ -29,11 +29,16 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
    this.data = this.api.cal;
    console.log(this.data);
+   this.do();
   }
   // check(){
   //   this.winer = this.data.Win
   //   console.log("The Winer is "+this.winer);
     
   // }
+
+  do(){
+    this.api.postimg(this.api.json);
+  }
   
 }
