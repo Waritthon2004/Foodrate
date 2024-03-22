@@ -31,6 +31,8 @@ export class AllUserComponent implements OnInit{
 
  
 logout() {
+  localStorage.clear();
+  this.route.navigate(['']);
 }
 next(id:any) {
   this.route.navigate(['/userProfile', id]);
