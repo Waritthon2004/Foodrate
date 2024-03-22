@@ -97,6 +97,16 @@ public async register(option : any) {
     return response;
   }
 
+
+   //stand user
+   public async userpage(option?:any){
+    let url = this.constants.API_ENDPOINT+'/user/page';
+    const response = await lastValueFrom(this.http.post(url,option));
+    return response;
+  }
+
+
+
   //get image standing
 
 public async getstandind() {    

@@ -13,26 +13,37 @@ import { ApiService } from '../../service/api.service';
 })
 export class AllUserComponent implements OnInit{
 
+
   img : any;
   users : any;
-  i : any;
+  count : any;
   user : any;
-  totalItems:number = 0;
+  all : any;
   constructor(private route:Router,private api:ApiService){}
   ngOnInit(): void {
+    this.count = [];
     this.img = localStorage.getItem('img');
     this.load();
   }
   async load (){
-    this.users = await this.api.getUser();
-    console.log(this.users);
-    this.i = 0;
+     this.all = await this.api.getUser();
+      this.users = this.all.data;
+      let i = Math.ceil(this.all.Row / 5);
+      for(let j = 1; j<=i;j++){
+        this.count.push(j);
+      }
+      
   }
 
  
 logout() {
 }
-next(id:any) {
-  this.route.navigate(['/userProfile', id]);
+async page(page: any) {
+  let json= {
+    page : page
+  }
+    this.users =  await this.api.userpage(json);
+    console.log(this.users);
+    
   }
 }
