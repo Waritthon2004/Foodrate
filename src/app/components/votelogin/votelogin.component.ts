@@ -59,6 +59,8 @@ export class VoteloginComponent implements OnInit {
   }
   async loadimage() {
     this.image = await this.api.getImage();
+    console.log(this.image);
+    
   }
 
   async Awin() {
@@ -71,7 +73,7 @@ export class VoteloginComponent implements OnInit {
       point1: this.image.point1,
       point2: this.image.point2,
     };
-
+    this.api.json = json;
     this.api.cal = await this.api.putPoint(json);
     this.dialog.open(DialogComponent);
   }
@@ -87,9 +89,8 @@ export class VoteloginComponent implements OnInit {
       point2: this.image.point2,
     };
     console.log(json);
-
+    this.api.json = json;
     this.api.cal = await this.api.putPoint(json);
-
     this.dialog.open(DialogComponent);
   }
   logout() {

@@ -30,6 +30,7 @@ import { DialogComponent } from '../../dialog/dialog.component';
 })
 export class VotenologinComponent implements OnInit {
   image: any;
+  json : any;
   constructor(private api: ApiService, public dialog: MatDialog) {}
   ngOnInit(): void {
     this.loadimage();
@@ -49,8 +50,9 @@ export class VotenologinComponent implements OnInit {
       point1: this.image.point1,
       point2: this.image.point2,
     };
-
+    this.api.json = json;
     this.api.cal = await this.api.putPoint(json);
+  
     this.dialog.open(DialogComponent);
   }
 
@@ -65,19 +67,19 @@ export class VotenologinComponent implements OnInit {
       point2: this.image.point2,
     };
     console.log(json);
-
+    this.api.json = json;
     this.api.cal = await this.api.putPoint(json);
-
     this.dialog.open(DialogComponent);
   }
 
-  open(i: number) {
+  async open(i: number) {
     if (i == 1) {
-      this.Awin();
+       this.Awin();
     }
     if (i == 2) {
       this.Bwin();
     }
+   
     this.loadimage();
   }
 }

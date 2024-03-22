@@ -29,6 +29,11 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
    this.data = this.api.cal;
    console.log(this.data);
+   this.do();
+  }
+
+ async do(){
+    await this.api.postdelay(this.api.json);
   }
   // check(){
   //   this.winer = this.data.Win
