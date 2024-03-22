@@ -8,6 +8,7 @@ import { last, lastValueFrom } from 'rxjs';
 
 export class ApiService {
   cal : any;
+  json : any;
   constructor(private constants: Constants, private http: HttpClient) {
     
   }
@@ -35,6 +36,17 @@ public async register(option : any) {
     const response = await lastValueFrom(this.http.get(url));
     return response ;
   }
+
+
+  //delay 
+  public async postdelay(options : any) {    
+    let url = this.constants.API_ENDPOINT + '/image/delay';
+    const response = await lastValueFrom(this.http.post(url,options)); 
+    return response ;
+  }
+
+
+
   public async getImageAll() {    
     let url = this.constants.API_ENDPOINT + '/image/all';
     const response = await lastValueFrom(this.http.get(url));
