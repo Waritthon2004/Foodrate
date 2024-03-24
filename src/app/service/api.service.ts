@@ -7,6 +7,7 @@ import { last, lastValueFrom } from 'rxjs';
 })
 
 export class ApiService {
+  countdown: any ;
   cal : any;
   json:any;
   constructor(private constants: Constants, private http: HttpClient) {
@@ -159,6 +160,11 @@ public async getstandind() {
      }
 
 
-
+ //getdelay
+ public async getdelay(){
+  let url = this.constants.API_ENDPOINT+'/image/delay';
+    const response = await lastValueFrom(this.http.get(url));
+  return response ;
+ }
 } 
 

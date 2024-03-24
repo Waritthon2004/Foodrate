@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { DatePipe } from '@angular/common';
+import { MatDialogConfig } from '@angular/material/dialog';
 import {
   MatDialog,
   MatDialogRef,
@@ -12,6 +13,7 @@ import {
   MatDialogContent,
 } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { ShowComponent } from '../show/show.component';
 @Component({
   selector: 'app-votelogin',
   standalone: true,
@@ -23,9 +25,7 @@ import { DialogComponent } from '../../dialog/dialog.component';
   styleUrl: './votelogin.component.scss'
 })
 export class VoteloginComponent implements OnInit {
-show() {
-throw new Error('Method not implemented.');
-}
+
 
   image: any;
   id : any;
@@ -103,11 +103,20 @@ throw new Error('Method not implemented.');
   
   open(i: number) {
     if (i == 1) {
+      this.api.countdown = 10;
       this.Awin();
     }
     if (i == 2) {
       this.Bwin();
     }
     this.loadimage();
+  }
+
+
+  show() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '400px'; // Set width
+    dialogConfig.height = '300px'; // Set height
+     this.dialog.open(ShowComponent, dialogConfig);
   }
 }
