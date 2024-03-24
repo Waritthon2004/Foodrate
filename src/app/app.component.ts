@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { ApiService } from './service/api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,16 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  
   title = 'Foodrate';
+
+  constructor(private api : ApiService){}
+  ngOnInit(): void {
+    this.new();
+  }
+
+  async new(){
+    await this.api.newday();
+  }
 }

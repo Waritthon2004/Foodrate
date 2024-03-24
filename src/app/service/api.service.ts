@@ -145,5 +145,14 @@ public async getstandind() {
       return response ;
      }
 
+    //newday
+    public async newday(){
+      let url = this.constants.API_ENDPOINT+'/image/newday';
+        const response = await lastValueFrom(this.http.get(url));
+      return response ;
+     }
+
+
+
 } 
 
