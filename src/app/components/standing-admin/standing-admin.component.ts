@@ -20,6 +20,7 @@ export class StandingAdminComponent implements OnInit{
   data : any;
   pv : any;
   user!:any;
+  count:any;
   constructor(private api : ApiService,private route:Router,private activedrout: ActivatedRoute){
 
 }
@@ -35,22 +36,33 @@ export class StandingAdminComponent implements OnInit{
     });
   
     
-      this.loaddata();
+      this.loaddata(1);
   //  this.selectPrevious();
        
    
   }
 
-  async loaddata(){
+  async loaddata(page : any){
     this.data = [];
     this.pv = [];
-    
-    this.data = await this.api.getAllfood();
-    if(this.data.length != 10){
-      for(let i = this.data.length; i < 10; i++){
-        this.data.push("");
-      }
+
+    let json= {
+      page : page
     }
+    this.data = await this.api.getFoodAll();
+    this.count = [];
+    let i = Math.ceil(this.data.length / 10);
+    for(let j = 1; j<=i;j++){
+      this.count.push(j);
+    }
+    console.log(this.count);
+    
+
+    this.data =  await this.api.getFoodPage(json);
+    console.log(this.data);
+    console.log('count',this.count);
+    
+
     let result = await this.api.getPerviousDay();
     this.pv = result;
     if(this.pv.length != 10){
@@ -80,6 +92,14 @@ export class StandingAdminComponent implements OnInit{
     
     this.route.navigate(['/statistic'], { queryParams: { id: idx } });
 }
-
-  
+async page(page: any) {
+  let json= {
+    page : page
+  }
+    this.data =  await this.api.getFoodPage(json);
+    console.log(this.data);
+    
+  }
 }
+  
+

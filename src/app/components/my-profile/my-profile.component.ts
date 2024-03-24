@@ -18,27 +18,68 @@ export class MyProfileComponent implements OnInit{
   id : any;
   data : any;
   datas : any;
+  check! : any;
   constructor(private route : Router,private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute ){}
-  ngOnInit(): void {
+   ngOnInit(): void {
+    this.data = [];
+   
     this.id = localStorage.getItem('id');
-    this.myform = this.formBuilder.group({
-      Firstname: [''],
-      Lastname: [''],
-      Email: [''],
-      Password: [''],
-      File: [''] 
-    });
     this.getData();
+
+  }
+  form(){
+    this.myform = this.formBuilder.group({
+      Firstname: [this.data[0].Firstname],
+      Lastname: [this.data[0].Lastname],
+      Email: [this.data[0].Email]
+      // Password: [''],
+      // File: [''] 
+    });
+    // console.log(this.myform);
+  
   }
   async getData(){
     this.datas = [];
     const response = await this.api.getUserById(this.id)
     this.data = response;
+    this.form();
+   
   }
-  onFileChange($event: Event) {
+  async onFileChange($event: Event) {
+    const file = ($event.target as HTMLInputElement).files![0];
+    this.formData.append('file', file);
   }
-  submitForm() {
-  } 
+  async submitForm() {
+    
+    if (this.myform.valid) {
+    this.formData.append('Firstname', this.myform.get('Firstname')!.value);
+    this.formData.append('Lastname', this.myform.get('Lastname')!.value);
+    this.formData.append('Email', this.myform.get('Email')!.value);
+    this.formData.forEach((value, key) => {
+      console.log(key + ', ' + value);
+    });
+    try {
+       this.check = await this.api.updateData(this.formData,this.id);
+   
+       
+      if(this.check.Err == "false"){
+        console.log(this.check.Err );
+        location.reload();
+      }
+      else{
+        await this.getData();
+      }
+      
+    } catch (error) {
+      
+    }
+    } else {
+      alert("กรุณากรอกข้อมูลให้ครบ");
+    } 
+  }
+
+
+
   back() {
     window.history.back();
   }  
