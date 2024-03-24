@@ -144,8 +144,14 @@ public async getstandind() {
         const response = await lastValueFrom(this.http.get(url));
       return response ;
      }
-    //getAllFood
-    public async getAllfood(option?:any){
+    //getFoodPage
+    public async getFoodPage(option?:any){
+      let url = this.constants.API_ENDPOINT+'/standing/page';
+        const response = await lastValueFrom(this.http.post(url,option));
+      return response ;
+     }
+    //getFoodAll
+    public async getFoodAll(option?:any){
       let url = this.constants.API_ENDPOINT+'/standing/admin';
         const response = await lastValueFrom(this.http.get(url));
       return response ;
@@ -157,7 +163,12 @@ public async getstandind() {
         const response = await lastValueFrom(this.http.get(url));
       return response ;
      }
-
+     //update user data
+     public async updateData(option?:any,id?:any){
+      let url = this.constants.API_ENDPOINT+'/user/'+id;
+      const response = await lastValueFrom(this.http.put(url,option));
+      return response ;
+     }
 
 
 } 

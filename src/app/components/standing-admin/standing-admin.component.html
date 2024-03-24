@@ -18,14 +18,14 @@
       <div class="img" style="background-image: url('{{ img }}');"></div>
     </div>
     <div class="btn">
-      <div style="width: 90%; display: flex; justify-content: space-between">
-        <a class="a1" href="">
+      <div style="width: 90%; display: flex; justify-content: end">
+        <!-- <a class="a1" href="">
           <div class="ina">STATUS</div>
-        </a>
+        </a> -->
 
         <a class="a2" routerLink="/standingAdmin"> <div class="ina">STANDING</div></a>
       </div>
-      <div (click)="logout()" class="logout">
+      <div (click)="logout()" style="margin-left: 1vw;" class="logout">
         <mat-icon
           style="font-size: 1.8vw"
           class="login"
@@ -89,6 +89,8 @@
   
   
       </div>
-  
     </div>
-  </body>
+        <div style="background-color: #f5f5ef; width: 100%; display: flex; justify-content: center; color: rgb(88, 86, 86);">
+            <p *ngFor="let item of count"  (click)="loaddata(item)" style="cursor: pointer; font-size: 1.3vw; margin-right: 10px;">{{item}}</p>
+        </div>
+  </body>   

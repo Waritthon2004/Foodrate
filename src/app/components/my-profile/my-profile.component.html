@@ -47,14 +47,14 @@
                 <h1 style="margin-right:5px;">E</h1>
             </div>
             <div class="imgContain" style="height: 30%; width: 100%; display:flex; justify-content: center;">
-                <div class="img" style="background-image: url('{{data[0].image}}');
+                <div class="img" style="background-image: url('{{data[0]?.image}}');
                 ">
                 </div>
             </div>
             <div class="info" style="margin-top: 1.6vw; width: 100%; display: flex; justify-content: center;">
                 <div class="detail">
-                    <h3>Name: {{data[0].Firstname}} <br><br> Surname: {{data[0].Lastname}}</h3><br>
-                    <h3>Email: {{data[0].Email}}</h3>
+                    <h3>Name: {{data[0]?.Firstname}} <br><br> Surname: {{data[0]?.Lastname}}</h3><br>
+                    <h3>Email: {{data[0]?.Email}}</h3>
                 </div>
             </div>
           
@@ -77,10 +77,10 @@
                             <label for="formFile" class="form-label">EMAIL</label><br>
                             <input class="input"  required="กรุณากรอกให้ครบ"  type="text" formControlName="Email" >
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="formFile" class="form-label">PASSWORD</label><br>
                             <input class="input"   type="password" formControlName="Password" >
-                        </div>
+                        </div> -->
                        
 
                         <div class="mb-3">
@@ -88,7 +88,7 @@
                             <input class="form-control"   type="file"    id="formFile" (change)="onFileChange($event)">
                           </div>
                        <div class="register">
-                        <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">REGISTER</button>
+                        <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">UPDATE</button>
 
                        </div>
                     </div>
