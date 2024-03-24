@@ -10,6 +10,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { AllUserComponent } from './components/all-user/all-user.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { StandingAdminComponent } from './components/standing-admin/standing-admin.component';
 
 
 export const routes: Routes = [
@@ -24,4 +25,5 @@ export const routes: Routes = [
     {path:'admin',component:AllUserComponent},
     {path:'statistic',component:StatisticComponent},
     {path:'userProfile/:id',component:UserProfileComponent},
+    {path:'standingAdmin',component:StandingAdminComponent},
 ];

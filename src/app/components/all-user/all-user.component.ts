@@ -24,6 +24,8 @@ export class AllUserComponent implements OnInit{
     this.count = [];
     this.img = localStorage.getItem('img');
     this.load();
+  
+  
   }
   async load (){
      this.all = await this.api.getUser();
@@ -32,6 +34,7 @@ export class AllUserComponent implements OnInit{
       for(let j = 1; j<=i;j++){
         this.count.push(j);
       }
+      console.log(this.users);
       
   }
 
