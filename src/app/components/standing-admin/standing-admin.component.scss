@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hammersmith+One&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hammersmith+One&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Mega:wght@100..900&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: #c18d68;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Hammersmith One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.innav {
+    width: 60%;
+    display: flex;
+    color: white;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2%;
+}
+
+.a1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    border-right: 2px solid black;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2vw;
+
+}
+
+.a2 {
+    font-size: 1.2vw;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    border-left: 1px solid black;
+}
+
+.ina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 80%;
+    width: 80%;
+    background-color: #6b4e28;
+}
+
+.inTitle {
+    align-items: center;
+    font-size: .8vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    margin-top: 1vw;
+    width: 10vw;
+    height: 4vw;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    width: 4.4vw;
+    border-radius: 50%;
+    height: 4.4vw;
+    background-position: center;
+    background-size: cover;
+}
+
+.btn {
+    height: 60%;
+    color: white;
+    margin-right: 2vw;
+    width: 18vw;
+    justify-content: space-between;
+    display: flex;
+}
+
+header {
+    display: flex;
+    width: 100%;
+}
+
+.back {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.title {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.back a {
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 2vw;
+    display: flex;
+    align-items: center;
+    padding: 2.8%;
+    color: white;
+    background-color: #513D31;
+    height: 2vw;
+}
+
+.img1 {
+    background-size: cover;
+    background-position: center;
+    width: 15%;
+    height: 90%;
+    border-radius: 10PX;
+    transition: .4s;
+    cursor: pointer;
+}
+.img1:hover{
+    transform: scale(1.05);
+}
+.con{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.incon2{
+    width: 60vw;
+    background-color: #d9c3b0;
+    height: 5vw;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    font-size: 1.5vw;
+    margin-bottom: 2%;
+}
+.incon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vw;
+    margin-right: 2%;
+    font-size: 1.5vw;
+    width: 10vh;
+}
+.incon3{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+.n2 {
+    display: flex;
+    width: 40%;
+    color: white;
+    gap: 2%;
+    justify-content: flex-end;
+    margin-right: 2%;
+}
+
+.n3 {
+    width: 20vh;
+    height: 5vh;
+    border-radius: 20px;
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6b4e28;
+}
+
+.n4 {
+    height: 5vh;
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.n4 a{
+    text-decoration: none;
+    color: white;
+}
+.icon{
+    font-size: 6vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    font-size: 3vw; width: 100%; height: 100%;display: flex; align-items: center; cursor: pointer;
+}

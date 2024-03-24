@@ -144,6 +144,12 @@ public async getstandind() {
         const response = await lastValueFrom(this.http.get(url));
       return response ;
      }
+    //getAllFood
+    public async getAllfood(option?:any){
+      let url = this.constants.API_ENDPOINT+'/standing/admin';
+        const response = await lastValueFrom(this.http.get(url));
+      return response ;
+     }
 
 } 
 
