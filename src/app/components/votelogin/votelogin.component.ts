@@ -23,6 +23,9 @@ import { DialogComponent } from '../../dialog/dialog.component';
   styleUrl: './votelogin.component.scss'
 })
 export class VoteloginComponent implements OnInit {
+show() {
+throw new Error('Method not implemented.');
+}
 
   image: any;
   id : any;
