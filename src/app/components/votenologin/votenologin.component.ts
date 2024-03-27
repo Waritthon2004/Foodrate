@@ -35,6 +35,7 @@ export class VotenologinComponent implements OnInit {
   json : any;
   constructor(private api: ApiService, public dialog: MatDialog) {}
   ngOnInit(): void {
+    localStorage.setItem('Timedelay', '10');
     this.loadImageWithPopup();
   }
   async loadImageWithPopup() {
@@ -45,7 +46,7 @@ export class VotenologinComponent implements OnInit {
     });
   
     try {
-      this.image = await this.api.getImage();
+      this.image = await this.api.getImage(localStorage.getItem('Timedelay'));
     } catch (error) {
       console.error('Failed to load image:', error);
       // Handle error (e.g., show error message)

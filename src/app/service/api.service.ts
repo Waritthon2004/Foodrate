@@ -32,9 +32,9 @@ public async register(option : any) {
 
 
   //get image
- public async getImage() {    
+ public async getImage(option:any) {    
     let url = this.constants.API_ENDPOINT + '/image';
-    const response = await lastValueFrom(this.http.get(url));
+    const response = await lastValueFrom(this.http.post(url,option));
     return response ;
   }
 

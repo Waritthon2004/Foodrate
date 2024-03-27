@@ -68,7 +68,8 @@ export class VoteloginComponent implements OnInit {
     });
   
     try {
-      this.image = await this.api.getImage();
+      let x = localStorage.getItem('Timedelay');
+      this.image = await this.api.getImage(x);
     } catch (error) {
       console.error('Failed to load image:', error);
       // Handle error (e.g., show error message)
