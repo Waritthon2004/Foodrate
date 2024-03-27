@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { LoaddingComponent } from '../loadding/loadding.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-register',  
   standalone: true,
@@ -15,7 +17,7 @@ export class RegisterComponent implements OnInit {
   myform!: FormGroup;
   formData: FormData = new FormData();
   check! : any;
-  constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router,public dialog: MatDialog) { }
   
   ngOnInit(): void {
     this.myform = this.formBuilder.group({
@@ -28,7 +30,11 @@ export class RegisterComponent implements OnInit {
   }
 
   async submitForm() {
-    
+    let dialogRef = this.dialog.open(LoaddingComponent, {
+      width: '250px',
+      height: '250px',
+      data: { message: 'Loading...' }
+    });
     if (this.myform.valid) {
       this.formData.append('Firstname', this.myform.get('Firstname')!.value);
     this.formData.append('Lastname', this.myform.get('Lastname')!.value);
@@ -51,6 +57,9 @@ export class RegisterComponent implements OnInit {
       
     } catch (error) {
       
+    }
+    finally{
+        dialogRef.close();
     }
     } else {
       alert("กรุณากรอกข้อมูลให้ครบ");

@@ -3,18 +3,20 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { Router, RouterLink } from '@angular/router';
+import { LoaddingComponent } from '../loadding/loadding.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule,RouterLink,LoaddingComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
   myForm!: FormGroup;
   bool: any;
-  constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router) {}
+  constructor(private formBuilder: FormBuilder, private api: ApiService,private route:Router,public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.myForm = this.formBuilder.group({
@@ -30,7 +32,15 @@ export class LoginComponent implements OnInit {
   }
 
   async Checklogin(jsonData: any) {
+    let dialogRef = this.dialog.open(LoaddingComponent, {
+      width: '250px',
+      height: '250px',
+      data: { message: 'Loading...' }
+    });
     this.bool = await this.api.checkLogin(jsonData);
+    if(this.bool){
+      dialogRef.close();
+    }
     console.log(typeof this.bool.UID);
     
     if(typeof this.bool.UID === 'number'){
@@ -44,6 +54,7 @@ export class LoginComponent implements OnInit {
 
         }
         else if(this.bool.type == 0){
+        localStorage.setItem('Timedelay', '10');
         this.route.navigate(['/user'])
         }
     }
