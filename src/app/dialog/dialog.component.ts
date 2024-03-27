@@ -28,6 +28,7 @@ export class DialogComponent implements OnInit {
   }
   ngOnInit(): void {
    this.data = this.api.cal;
+   console.log(this.data);
    this.do();
   }
   // check(){
