@@ -108,8 +108,8 @@ async delete(id: any) {
     setTimeout(() => {
       dialogRef.close();  
       this.loadImageWithPopup();
-    }, 3000);
-    
+    }, 2000);
+
 }
 
   back() {
