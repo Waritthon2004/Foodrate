@@ -19,10 +19,12 @@ export class AllUserComponent implements OnInit{
   count : any;
   user : any;
   all : any;
+  name : any;
   constructor(private route:Router,private api:ApiService){}
   ngOnInit(): void {
     this.count = [];
     this.img = localStorage.getItem('img');
+    this.name = localStorage.getItem('user')
     this.load();
   
   
