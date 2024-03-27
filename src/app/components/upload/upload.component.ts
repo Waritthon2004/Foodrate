@@ -42,6 +42,7 @@ imgProfile = localStorage.getItem('img')
       this.route.navigate(['']);
 
     }
+  
     this.id = localStorage.getItem('id');
     
     this.loadImageWithPopup() ;
