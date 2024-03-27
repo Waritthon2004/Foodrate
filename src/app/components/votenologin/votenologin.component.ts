@@ -11,6 +11,7 @@ import {
   MatDialogContent,
 } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { LoaddingComponent } from '../loadding/loadding.component';
 
 @Component({
   selector: 'app-votenologin',
@@ -24,6 +25,7 @@ import { DialogComponent } from '../../dialog/dialog.component';
     MatDialogTitle,
     MatDialogContent,
     DialogComponent,
+    LoaddingComponent,
   ],
   templateUrl: './votenologin.component.html',
   styleUrl: './votenologin.component.scss',
@@ -33,13 +35,24 @@ export class VotenologinComponent implements OnInit {
   json : any;
   constructor(private api: ApiService, public dialog: MatDialog) {}
   ngOnInit(): void {
-    this.loadimage();
+    this.loadImageWithPopup();
   }
-  async loadimage() {
-    this.image = await this.api.getImage();
-    console.log(this.image);
+  async loadImageWithPopup() {
+    let dialogRef = this.dialog.open(LoaddingComponent, {
+      width: '250px',
+      height: '250px',
+      data: { message: 'Loading...' }
+    });
+  
+    try {
+      this.image = await this.api.getImage();
+    } catch (error) {
+      console.error('Failed to load image:', error);
+      // Handle error (e.g., show error message)
+    } finally {
+        dialogRef.close();
+    }
   }
-
   async Awin() {
     let json = {
       win: 1,
@@ -80,6 +93,6 @@ export class VotenologinComponent implements OnInit {
       this.Bwin();
     }
    
-    this.loadimage();
+    this.loadImageWithPopup();
   }
 }

@@ -61,23 +61,25 @@ export class VoteloginComponent implements OnInit {
     console.log(localStorage.getItem('user'));
     
   }
-
+  
   async loadImageWithPopup() {
-    const dialogRef = this.dialog.open(LoaddingComponent, {
+    let dialogRef = this.dialog.open(LoaddingComponent, {
       width: '250px',
+      height: '250px',
       data: { message: 'Loading...' }
     });
-
+  
     try {
       this.image = await this.api.getImage();
-      dialogRef.close();
-      console.log(this.image);
     } catch (error) {
-      dialogRef.close();
-      console.error(error);
+      console.error('Failed to load image:', error);
+      // Handle error (e.g., show error message)
+    } finally {
+        dialogRef.close();
     }
   }
-
+  
+  
  
 
   async Awin() {

@@ -5,10 +5,15 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { LoaddingComponent } from '../loadding/loadding.component';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle ,MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-standing-admin',
   standalone: true,
-  imports: [MatIconModule,CommonModule,RouterLink,FormsModule],
+  imports: [MatIconModule,CommonModule,RouterLink,FormsModule,LoaddingComponent,MatDialogActions,
+    MatDialogClose,
+    MatDialogTitle,
+    MatDialogContent,],
   templateUrl: './standing-admin.component.html',
   styleUrl: './standing-admin.component.scss'
 })
@@ -21,7 +26,7 @@ export class StandingAdminComponent implements OnInit{
   pv : any;
   user!:any;
   count:any;
-  constructor(private api : ApiService,private route:Router,private activedrout: ActivatedRoute){
+  constructor(private api : ApiService,private route:Router,private activedrout: ActivatedRoute,public dialog: MatDialog){
 
 }
 
@@ -41,39 +46,51 @@ export class StandingAdminComponent implements OnInit{
        
    
   }
-
-  async loaddata(page : any){
+  async loaddata(page: any) {
     this.data = [];
     this.pv = [];
-
-    let json= {
-      page : page
-    }
-    this.data = await this.api.getFoodAll();
-    this.count = [];
-    let i = Math.ceil(this.data.length / 10);
-    for(let j = 1; j<=i;j++){
-      this.count.push(j);
-    }
-    console.log(this.count);
-    
-
-    this.data =  await this.api.getFoodPage(json);
-    console.log(this.data);
-    console.log('count',this.count);
-    
-
-    let result = await this.api.getPerviousDay();
-    this.pv = result;
-    if(this.pv.length != 10){
-      for(let i = this.pv.length; i < 10; i++){
-        this.pv.push("");
+    let dialogRef = this.dialog.open(LoaddingComponent, {
+      width: '250px',
+      height: '250px',
+      data: { message: 'Loading...' }
+    });
+  
+    let json = {
+      page: page
+    };
+  
+    try {
+      // Perform API calls concurrently
+      let [foods, count, prevDay] = await Promise.all([
+        this.api.getFoodAll(),
+        this.api.getFoodPage(json),
+        this.api.getPerviousDay()
+      ]);
+  
+      this.data = foods;
+      let i = Math.ceil(this.data.length / 10);
+      this.count = Array.from({ length: i }, (_, index) => index + 1);
+  
+      this.pv = prevDay;
+      if (this.pv.length < 10) {
+        this.pv.push(...Array.from({ length: 10 - this.pv.length }, () => ''));
       }
+  
+      console.log(this.data);
+      console.log(this.count);
+      console.log(this.pv);
+    } catch (error) {
+      console.error('Failed to load data:', error);
+      // Handle error
+    } finally {
+      dialogRef.close();
     }
-    console.log(this.data); 
-    console.log(this.pv);
-    
   }
+  
+
+
+
+
   logout() {
     localStorage.clear();
     this.route.navigate(['']);

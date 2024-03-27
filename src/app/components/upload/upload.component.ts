@@ -13,6 +13,7 @@ import {
   MatDialogContent,
   
 } from '@angular/material/dialog';
+import { LoaddingComponent } from '../loadding/loadding.component';
 @Component({
   selector: 'app-upload',
   standalone: true,
@@ -20,6 +21,7 @@ import {
     MatDialogClose,
     MatDialogTitle,
     MatDialogContent,
+    LoaddingComponent
     ],
   templateUrl: './upload.component.html',
   styleUrl: './upload.component.scss'
@@ -34,18 +36,32 @@ imgProfile = localStorage.getItem('img')
   ngOnInit(): void {
     this.id = localStorage.getItem('id');
     
-    this.selectIMG();
+    this.loadImageWithPopup() ;
   }
-  async selectIMG(){
-    const response = await this.api.getImageById(this.id);
-    this.img = response; 
-    if(this.img.length != 5){
-      for(let i = this.img.length;i!=5;i++){
-        this.img.push({url: null});
+
+  async loadImageWithPopup() {
+    let dialogRef = this.dialog.open(LoaddingComponent, {
+      width: '250px',
+      height: '250px',
+      data: { message: 'Loading...' }
+    });
+  
+    try {
+      const response = await this.api.getImageById(this.id);
+      this.img = response; 
+      if(this.img.length != 5){
+        for(let i = this.img.length;i!=5;i++){
+          this.img.push({url: null});
+      }
+    }
+    } catch (error) {
+      console.error('Failed to load image:', error);
+      // Handle error (e.g., show error message)
+    } finally {
+        dialogRef.close();
     }
   }
-  console.log(this.img);
-}
+
 async delete(id: any) {
   const dialogConfig = new MatDialogConfig();
   dialogConfig.width = '400px'; // Set width
@@ -55,7 +71,7 @@ async delete(id: any) {
   dialogRef.afterClosed().subscribe(async result => {
     if (result) {
       const response = await this.api.deleteIMG(id);
-      this.selectIMG();
+      this.loadImageWithPopup() ;
     }
   });
 }
@@ -73,7 +89,7 @@ async delete(id: any) {
     formData.append('file',file);
     try {
       await this.api.insertPicture(formData,this.id);
-      this.selectIMG();
+      this.loadImageWithPopup() ;
     } catch (error) {
       
     }
