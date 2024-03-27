@@ -21,9 +21,13 @@ export class MyProfileComponent implements OnInit{
   check! : any;
   constructor(private route : Router,private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute ){}
    ngOnInit(): void {
-    let  x   = localStorage.getItem('type')||1;
+    let  x   = localStorage.getItem('type')||2;
     if(x  == 1){
       this.route.navigate(['/admin']);
+    }
+    else if(x == 2){
+      this.route.navigate(['']);
+
     }
     this.data = [];
    

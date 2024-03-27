@@ -27,6 +27,10 @@ export class AllUserComponent implements OnInit{
     if(x  == 0){
       this.route.navigate(['/user']);
     }
+    else if(x == 2){
+      this.route.navigate(['']);
+
+    }
     this.id = localStorage.getItem('id');
     this.count = [];
     this.getData(this.id);

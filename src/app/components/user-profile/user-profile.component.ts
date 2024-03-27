@@ -26,6 +26,10 @@ export class UserProfileComponent implements OnInit{
     if(x  == 0){
       this.route.navigate(['/user']);
     }
+    else if(x == 2){
+      this.route.navigate(['']);
+
+    }
     this.name = localStorage.getItem('user')
     this.imgUser = localStorage.getItem('img');
     this.activedroute.params.subscribe(params=>{
