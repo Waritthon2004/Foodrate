@@ -14,13 +14,14 @@ import {
 } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { ShowComponent } from '../show/show.component';
+import { LoaddingComponent } from '../loadding/loadding.component';
 @Component({
   selector: 'app-votelogin',
   standalone: true,
   imports: [MatIconModule,RouterModule,RouterLink,MatDialogActions,
     MatDialogClose,
     MatDialogTitle,
-    MatDialogContent,DialogComponent],
+    MatDialogContent,DialogComponent,LoaddingComponent],
   templateUrl: './votelogin.component.html',
   styleUrl: './votelogin.component.scss'
 })
@@ -47,7 +48,7 @@ export class VoteloginComponent implements OnInit {
     
     this.id = localStorage.getItem('id');
     this.getData(this.id);
-    this.loadimage();
+    this.loadImageWithPopup();
   }
   data : any;
   async getData(id:any){
@@ -60,11 +61,24 @@ export class VoteloginComponent implements OnInit {
     console.log(localStorage.getItem('user'));
     
   }
-  async loadimage() {
-    this.image = await this.api.getImage();
-    console.log(this.image);
-    
+
+  async loadImageWithPopup() {
+    const dialogRef = this.dialog.open(LoaddingComponent, {
+      width: '250px',
+      data: { message: 'Loading...' }
+    });
+
+    try {
+      this.image = await this.api.getImage();
+      dialogRef.close();
+      console.log(this.image);
+    } catch (error) {
+      dialogRef.close();
+      console.error(error);
+    }
   }
+
+ 
 
   async Awin() {
     let json = {
@@ -109,7 +123,7 @@ export class VoteloginComponent implements OnInit {
     if (i == 2) {
       this.Bwin();
     }
-    this.loadimage();
+     this.loadImageWithPopup();
   }
 
 
