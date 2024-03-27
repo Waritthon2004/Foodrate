@@ -32,7 +32,7 @@ export class StandingComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let  x   = localStorage.getItem('type')||1;
+    let  x   = localStorage.getItem('type')||2;
     if(x  == 1){
       this.route.navigate(['/admin']);
     }
@@ -41,10 +41,7 @@ export class StandingComponent implements OnInit{
     });
   
     
-      this.loaddata();
-  //  this.selectPrevious();
-       
-   
+      this.loaddata();   
   }
 
   async loaddata(){

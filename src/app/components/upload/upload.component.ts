@@ -34,9 +34,13 @@ name = localStorage.getItem('user');
 imgProfile = localStorage.getItem('img')
   constructor(private api:ApiService,private route:Router,public dialog: MatDialog){}
   ngOnInit(): void {
-    let  x   = localStorage.getItem('type')||1;
+    let  x   = localStorage.getItem('type')||2;
     if(x  == 1){
       this.route.navigate(['/admin']);
+    }
+    else if(x == 2){
+      this.route.navigate(['']);
+
     }
     this.id = localStorage.getItem('id');
     
@@ -88,15 +92,23 @@ async delete(id: any) {
   //  // this.http.put('http://localhost:3000/upload/image',formData).subscribe((res:any)=>{ })
   // }
   async onChangeFile(event: any) {
+    let dialogRef = this.dialog.open(LoaddingComponent, {
+      width: '250px',
+      height: '250px',
+    });
     const file  = event.target.files[0];
     const formData = new FormData();
     formData.append('file',file);
     try {
       await this.api.insertPicture(formData,this.id);
-      this.loadImageWithPopup() ;
     } catch (error) {
       
-    }
+    }   
+    setTimeout(() => {
+      dialogRef.close();  
+      this.loadImageWithPopup();
+    }, 3000);
+    
 }
 
   back() {

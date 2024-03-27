@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
+    <nav *ngIf="x != 2;else xxx">
         <div class="innav" >
           <a routerLink="/user"  style="width: 15%; height: 10%">
             <img src="../../../assets/img/logo-modified.png" alt="" width="100%" height="100%" />
@@ -31,6 +31,32 @@
           </div>
         </div>
       </nav>
+      <ng-template #xxx>
+        <nav>
+          <div class="innav">
+            <div style="width: 15%; height: 10%">
+              <img src="../../../assets/img/logo-modified.png" alt="" width="100%" height="100%" />
+            </div>
+            <div style="font-size: 2vw;font-weight: bolder;">Temporary user</div>
+            <div style="width: 30%; height: 5vw">
+              <mat-icon
+                style="font-size: 4vw; width: 100%; height: 100%;margin-top: .4vw;"
+                fontIcon="person"
+              ></mat-icon>
+            </div>
+          </div>
+          <div class="n2">
+            <div class="n3">
+              <a [routerLink]="['/standing']" [queryParams]="{ user: 0 }" style="text-decoration: none; color: white;">STANDING</a>
+        
+            </div>
+            <div style="font-size: 2vw; font-weight: bolder; color: black">|</div>
+            <div class="n4">
+              <a routerLink="/login">LOGIN</a>
+            </div>
+          </div>
+        </nav>
+      </ng-template>
       <header>
         <div class="back">
           <a  (click)="back()"><h2>BACK</h2></a>

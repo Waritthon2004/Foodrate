@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
     if(typeof this.bool.UID === 'number'){
         localStorage.setItem('id',this.bool.UID);
         localStorage.setItem('type',this.bool.type)
+        console.log(this.bool.type);
         
         if( this.bool.type == "1" ){
           this.route.navigate(['/admin'])

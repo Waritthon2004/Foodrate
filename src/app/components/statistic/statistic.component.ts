@@ -3,10 +3,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Chart from 'chart.js/auto';
 import { ApiService } from '../../service/api.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-statistic',
   standalone: true,
-  imports: [MatIconModule,RouterLink],
+  imports: [MatIconModule,RouterLink,CommonModule],
   templateUrl: './statistic.component.html',
   styleUrl: './statistic.component.scss'
 })
@@ -16,6 +17,7 @@ export class StatisticComponent implements OnInit {
   imgProfile = localStorage.getItem('img')
   id : any;
   data: any;
+  x:any;
   constructor(private route:Router, private api : ApiService,private activeatedRoute: ActivatedRoute){
   
   }
@@ -29,6 +31,9 @@ export class StatisticComponent implements OnInit {
 
 
   ngOnInit() {
+    this.x   = localStorage.getItem('type')||2;
+    console.log(this.x);
+    
     this.activeatedRoute.queryParams.subscribe(params => {
       this.id = params['id'];
       console.log(this.id);

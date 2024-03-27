@@ -40,6 +40,10 @@ export class StandingAdminComponent implements OnInit{
     if(x  == 0){
       this.route.navigate(['/user']);
     }
+    else if(x == 2){
+      this.route.navigate(['']);
+
+    }
     this.activedrout.queryParamMap.subscribe(params => {
       this.user = params.get('user');
     });
