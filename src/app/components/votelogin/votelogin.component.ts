@@ -36,12 +36,10 @@ export class VoteloginComponent implements OnInit {
   constructor(private api: ApiService,private route : Router,public dialog: MatDialog) {
   }
   ngOnInit(): void {
-
-    // const currentDate = new Date().toISOString().slice(0, 10);
-    // console.log(currentDate);
-    
-
-    
+    let  x   = localStorage.getItem('type')||1;
+    if(x  == 1){
+      this.route.navigate(['/admin']);
+    }
     const datepipe: DatePipe = new DatePipe('en-US')
     let formattedDate = datepipe.transform(new Date(), 'YYYY-MM-dd')
     console.log(formattedDate);

@@ -22,6 +22,10 @@ export class UserProfileComponent implements OnInit{
 
   constructor(private route : Router,private api:ApiService,private activedroute : ActivatedRoute ){}
   ngOnInit(): void {
+    let  x   = localStorage.getItem('type')||2;
+    if(x  == 0){
+      this.route.navigate(['/user']);
+    }
     this.name = localStorage.getItem('user')
     this.imgUser = localStorage.getItem('img');
     this.activedroute.params.subscribe(params=>{

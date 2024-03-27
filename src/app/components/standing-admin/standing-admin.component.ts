@@ -31,6 +31,10 @@ export class StandingAdminComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    let  x   = localStorage.getItem('type')||2;
+    if(x  == 0){
+      this.route.navigate(['/user']);
+    }
     this.activedrout.queryParamMap.subscribe(params => {
       this.user = params.get('user');
     });

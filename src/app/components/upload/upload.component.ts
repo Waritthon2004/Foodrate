@@ -32,6 +32,10 @@ name = localStorage.getItem('user');
 imgProfile = localStorage.getItem('img')
   constructor(private api:ApiService,private route:Router,public dialog: MatDialog){}
   ngOnInit(): void {
+    let  x   = localStorage.getItem('type')||1;
+    if(x  == 1){
+      this.route.navigate(['/admin']);
+    }
     this.id = localStorage.getItem('id');
     
     this.selectIMG();
