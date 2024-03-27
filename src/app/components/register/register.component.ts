@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       File: ['']
     });
   }
-
+  
   async submitForm() {
     let dialogRef = this.dialog.open(LoaddingComponent, {
       width: '250px',
