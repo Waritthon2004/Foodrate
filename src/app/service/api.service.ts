@@ -157,7 +157,12 @@ public async getstandind() {
         const response = await lastValueFrom(this.http.get(url));
       return response ;
      }
-
+   //checkday
+   public async checkday(){
+    let url = this.constants.API_ENDPOINT+'/image/checkday';
+      const response = await lastValueFrom(this.http.get(url));
+    return response ;
+   }
     //newday
     public async newday(){
       let url = this.constants.API_ENDPOINT+'/image/newday';
