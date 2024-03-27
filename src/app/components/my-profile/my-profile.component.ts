@@ -21,6 +21,10 @@ export class MyProfileComponent implements OnInit{
   check! : any;
   constructor(private route : Router,private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute ){}
    ngOnInit(): void {
+    let  x   = localStorage.getItem('type')||1;
+    if(x  == 1){
+      this.route.navigate(['/admin']);
+    }
     this.data = [];
    
     this.id = localStorage.getItem('id');

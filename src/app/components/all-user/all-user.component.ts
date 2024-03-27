@@ -20,11 +20,16 @@ export class AllUserComponent implements OnInit{
   user : any;
   all : any;
   name : any;
+  id:any;
   constructor(private route:Router,private api:ApiService){}
   ngOnInit(): void {
+    let  x   = localStorage.getItem('type')||2;
+    if(x  == 0){
+      this.route.navigate(['/user']);
+    }
+    this.id = localStorage.getItem('id');
     this.count = [];
-    this.img = localStorage.getItem('img');
-    this.name = localStorage.getItem('user')
+    this.getData(this.id);
     this.load();
   
   
@@ -33,14 +38,25 @@ export class AllUserComponent implements OnInit{
      this.all = await this.api.getUser();
       this.users = this.all.data;
       let i = Math.ceil(this.all.Row / 5);
+      console.log(i);
+      
       for(let j = 1; j<=i;j++){
         this.count.push(j);
       }
       console.log(this.users);
       
   }
+  data:any;
+  async getData(id:any){
+    const response = await this.api.getUserById(id)
+    this.data = response;
+    localStorage.setItem('user',this.data[0].Firstname);
+    localStorage.setItem('img',this.data[0].image);
+    this.img = localStorage.getItem('img');
+    this.name = localStorage.getItem('user');
 
- 
+    
+  }
 logout() {
   localStorage.clear();
   this.route.navigate(['']);
