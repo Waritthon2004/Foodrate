@@ -31,11 +31,13 @@ export class InfomationComponent {
       this.route.navigate(['']);
 
     }
+    this.activedroute.params.subscribe(params=>{
+      this.id = params['uid'];
+    })
+    
     this.name = localStorage.getItem('user')
     this.imgUser = localStorage.getItem('img');
-    this.activedroute.params.subscribe(params=>{
-      this.id = 4;
-    })
+
    this.getData();
    this.selectIMG();
   }
