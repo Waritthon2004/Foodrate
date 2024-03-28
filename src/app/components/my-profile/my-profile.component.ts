@@ -42,8 +42,7 @@ export class MyProfileComponent implements OnInit{
       Email: [this.data[0].Email]
       // Password: [''],
       // File: [''] 
-    });
-    // console.log(this.myform);
+    });    
   
   }
   async getData(){
@@ -58,34 +57,41 @@ export class MyProfileComponent implements OnInit{
     this.formData.append('file', file);
   }
   async submitForm() {
-    
     if (this.myform.valid) {
-    this.formData.append('Firstname', this.myform.get('Firstname')!.value);
-    this.formData.append('Lastname', this.myform.get('Lastname')!.value);
-    this.formData.append('Email', this.myform.get('Email')!.value);
-    this.formData.forEach((value, key) => {
-      console.log(key + ', ' + value);
-    });
-    try {
-       this.check = await this.api.updateData(this.formData,this.id);
-   
-       
-      if(this.check.Err == "false"){
-        console.log(this.check.Err );
-        location.reload();
-      }
-      else{
-        await this.getData();
-      }
+      this.formData.append('Firstname', this.myform.get('Firstname')!.value);
+      this.formData.append('Lastname', this.myform.get('Lastname')!.value);
+      this.formData.append('Email', this.myform.get('Email')!.value);
+      this.formData.forEach((value, key) => {
+        console.log(key + ', ' + value);
+      });
       
-    } catch (error) {
       
-    }
+      try {
+        console.log(this.formData);
+        this.check = await this.api.updateData(this.formData,this.id);
+  
+        if(this.check.Err == "false"){
+          console.log(this.check.Err );
+          location.reload();
+        } else {
+          await this.getData();
+        }
+        
+        // Reset formData to empty
+        this.formData = new FormData();
+        localStorage.setItem('user',this.data[0].Firstname)
+        localStorage.setItem('img',this.data[0]?.image)
+        this.name = localStorage.getItem('user');
+
+        
+      } catch (error) {
+        
+      }
     } else {
       alert("กรุณากรอกข้อมูลให้ครบ");
     } 
   }
-
+  
 
 
   back() {
