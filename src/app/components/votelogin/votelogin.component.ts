@@ -36,14 +36,14 @@ export class VoteloginComponent implements OnInit {
   constructor(private api: ApiService,private route : Router,public dialog: MatDialog) {
   }
   ngOnInit(): void {
-    // let  x   = localStorage.getItem('type')||2;
-    // if(x  == 1){
-    //   this.route.navigate(['/admin']);
-    // }
-    // else if(x == 2){
-    //   this.route.navigate(['']);
+    let  x   = localStorage.getItem('type')||2;
+    if(x  == 1){
+      this.route.navigate(['/admin']);
+    }
+    else if(x == 2){
+      this.route.navigate(['']);
 
-    // }
+    }
     const datepipe: DatePipe = new DatePipe('en-US')
     let formattedDate = datepipe.transform(new Date(), 'YYYY-MM-dd')
     console.log(formattedDate);
@@ -74,6 +74,8 @@ export class VoteloginComponent implements OnInit {
     try {
       let x = localStorage.getItem('Timedelay');
       this.image = await this.api.getImage(x);
+      console.log(this.image);
+      
     } catch (error) {
 
     } finally {

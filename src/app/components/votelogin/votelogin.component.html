@@ -56,15 +56,15 @@
   </div> -->
 
 
-  <div style="width: 18%;">
-    <div style="display: flex; width: 100%; height: 3.5vw;  border-top-left-radius:24px;    background-color:#efe6e0;
-    ">
+  <div style="width: 18%;" *ngIf="this.image.user1; else user1Block">
+   
+    <div  style="display: flex; width: 100%; height: 3.5vw; border-top-left-radius:24px; background-color:#efe6e0;">
       <div class="p2" style="background-image: url('{{this.image?.user1}}');
-      background-position: center;
-      background-size: cover;
-      width: 3.5vw;
-      border-radius: 50%;
-      height: 100%;">
+        background-position: center;
+        background-size: cover;
+        width: 3.5vw;
+        border-radius: 50%;
+        height: 100%;">
       </div>
       <h3 style="margin-left: 1vw;">
         {{this.image?.name1}}
@@ -73,11 +73,16 @@
     <div class="img1" style="background-image: url({{this.image?.image1}});"(click)="open(1)">
     </div>
   </div>
- 
+  
+  <ng-template #user1Block>
+    <div style="display: flex;justify-content: center; align-items: center; width: 7%; width: 20%;">
+      <h1 style="color: red;">IMAGE <= 1</h1> 
+    </div>
+  </ng-template>
 
  
   <h1>OR</h1>
-  <div style="width: 18%;">
+  <div  style="width: 18%;" *ngIf="this.image.user2; else user2Block">
     <div style="display: flex; width: 100%; height: 3.5vw;  border-top-left-radius:24px;   
      background-color:#efe6e0;
     ">
@@ -97,7 +102,12 @@
     <div  class="img1" style="background-image: url({{this.image?.image2}});"(click)="open(2)">
     </div>
   </div>
+  <ng-template #user2Block>
+    <div style="display: flex;justify-content: center; align-items: center; width: 7%; width: 20%;">
+      <h1 style="color: red;">IMAGE <= 1</h1> 
+    </div>
  
+ </ng-template>
 
 </main>
 
