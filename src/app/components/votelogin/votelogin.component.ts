@@ -32,7 +32,7 @@ export class VoteloginComponent implements OnInit {
   id : any;
   name : any;
   imgProfile:any;
-  
+  remain : any;
   constructor(private api: ApiService,private route : Router,public dialog: MatDialog) {
   }
   ngOnInit(): void {
@@ -95,7 +95,7 @@ export class VoteloginComponent implements OnInit {
       point1: this.image.point1,
       point2: this.image.point2,
     };
-    this.api.json = json;
+    this.remain = json;
     this.api.cal = await this.api.putPoint(json);
     this.dialog.open(DialogComponent);
   }
@@ -111,7 +111,7 @@ export class VoteloginComponent implements OnInit {
       point2: this.image.point2,
     };
     console.log(json);
-    this.api.json = json;
+    this.remain= json;
     this.api.cal = await this.api.putPoint(json);
     this.dialog.open(DialogComponent);
   }
@@ -120,15 +120,20 @@ export class VoteloginComponent implements OnInit {
     this.route.navigate(['']);
   }
   
-  open(i: number) {
+ async open(i: number) {
     if (i == 1) {
-      this.api.countdown = 10;
       this.Awin();
     }
     if (i == 2) {
       this.Bwin();
     }
+    try {
+      await this.api.postimg(this.remain);
      this.loadImageWithPopup();
+    } catch (error) {
+      
+    }
+    
   }
 
 

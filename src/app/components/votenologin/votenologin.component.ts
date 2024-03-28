@@ -33,6 +33,7 @@ import { LoaddingComponent } from '../loadding/loadding.component';
 export class VotenologinComponent implements OnInit {
   image: any;
   json : any;
+  remain : any;
   constructor(private api: ApiService, public dialog: MatDialog) {}
   ngOnInit(): void {
     localStorage.setItem('Timedelay', '10');
@@ -64,7 +65,7 @@ export class VotenologinComponent implements OnInit {
       point1: this.image.point1,
       point2: this.image.point2,
     };
-    this.api.json = json;
+    this.remain = json;
     this.api.cal = await this.api.putPoint(json);
   
     this.dialog.open(DialogComponent);
@@ -81,12 +82,14 @@ export class VotenologinComponent implements OnInit {
       point2: this.image.point2,
     };
     console.log(json);
-    this.api.json = json;
+    this.remain  = json;
     this.api.cal = await this.api.putPoint(json);
     this.dialog.open(DialogComponent);
+    
   }
 
   async open(i: number) {
+  
     if (i == 1) {
        this.Awin();
     }
@@ -94,6 +97,11 @@ export class VotenologinComponent implements OnInit {
       this.Bwin();
     }
    
-    this.loadImageWithPopup();
+    try {
+      await this.api.postimg(this.remain);
+     this.loadImageWithPopup();
+    } catch (error) {
+      
+    }
   }
 }

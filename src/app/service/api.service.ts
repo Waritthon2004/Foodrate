@@ -9,7 +9,6 @@ import { last, lastValueFrom } from 'rxjs';
 export class ApiService {
   countdown: any ;
   cal : any;
-  json:any;
   constructor(private constants: Constants, private http: HttpClient) {
     
   }

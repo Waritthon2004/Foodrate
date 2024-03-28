@@ -29,7 +29,6 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
    this.data = this.api.cal;
    console.log(this.data);
-   this.do();
   }
   // check(){
   //   this.winer = this.data.Win
@@ -37,8 +36,8 @@ export class DialogComponent implements OnInit {
     
   // }
 
-  do(){
-    this.api.postimg(this.api.json);
-  }
+//  async do(){
+//    await this.api.postimg(this.api.json);
+//   }
   
 }
