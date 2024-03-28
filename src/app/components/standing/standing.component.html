@@ -92,7 +92,7 @@
           </div>
           <div *ngIf="check(i.PID)">
             <div  style="color:rgb(9, 191, 21);" *ngIf="check(i.PID)-i.rank>0">{{check(i.PID)}}</div> 
-           <div *ngIf="check(i.PID)-i.rank<0" style="color:rgb(191, 64, 9) ;">{{i.rank-check(i.PID)}}</div>
+           <div *ngIf="check(i.PID)-i.rank<0" style="color:rgb(191, 64, 9) ;">{{check(i.PID)}}</div>
         </div>
         </div>
         <div class="incon2">

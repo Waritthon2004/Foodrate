@@ -19,10 +19,9 @@
           </div>
         </div>
         <div class="innav2">
-          <!-- <a routerLink="/profile" style="background-image: url('{{imgProfile}}');
-          ">
+          <a routerLink="/profile" style=" background-image: url('{{imgProfile}}');">
             
-          </a> -->
+          </a>
           <div style="font-size: 3.5vw; font-weight: bold; color: black">|</div>
           <div (click)="logout()">
             <mat-icon class="login" 
@@ -55,7 +54,7 @@
                 </div>
                 <div class="info" style="margin-top: 1.6vw; width: 100%; display: flex; justify-content: center;">
                     <div class="detail">
-                        <h3>Name: {{data[0]?.Firstname}} <br><br> Surname: {{data[0]?.Lastname}}</h3><br>
+                        <h3>Name: {{data[0]?.Firstname}} <br><br> Surname: {{data[0]?.Lastname}}</h3>
                         <h3>Email: {{data[0]?.Email}}</h3>
                     </div>
                 </div>
