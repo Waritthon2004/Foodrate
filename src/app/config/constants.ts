@@ -5,5 +5,5 @@ import { Injectable } from '@angular/core';
 })
 //https://apifood-kbmk.onrender.com
 export class Constants {
-  public readonly API_ENDPOINT: string = 'http://localhost:3000';
+  public readonly API_ENDPOINT: string = 'https://apifood-kbmk.onrender.com';
 }

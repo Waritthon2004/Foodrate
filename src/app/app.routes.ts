@@ -29,5 +29,5 @@ export const routes: Routes = [
     {path:'userProfile/:id',component:UserProfileComponent},
     {path:'standingAdmin',component:StandingAdminComponent},
     {path:'editadmin',component:EditadminComponent},
-    {path:'info',component:InfomationComponent},
+    {path:'info/:uid',component:InfomationComponent},
 ];
