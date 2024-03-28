@@ -44,7 +44,7 @@ export class UserProfileComponent implements OnInit{
   } 
   async getData(){
     this.datas = [];
-    const response = await this.api.getUserById(this.id)
+    const response = await this.api.getUserById(this.id);
     this.data = response;
    
     
