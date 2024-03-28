@@ -1,29 +1,33 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ChangepassComponent } from '../changepass/changepass.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 @Component({
   selector: 'app-editadmin',
   standalone: true,
-  imports: [MatIconModule,CommonModule,ReactiveFormsModule],
+  imports: [RouterLink,MatIconModule,CommonModule,ReactiveFormsModule],
   templateUrl: './editadmin.component.html',
   styleUrl: './editadmin.component.scss'
 })
 export class EditadminComponent {
   myform!: FormGroup;
   formData: FormData = new FormData();
-  img : any;
+  img = localStorage.getItem('img');
   users : any;
   count : any;
   user : any;
   all : any;
-  name : any;
+  name = localStorage.getItem('user');
+
   id:any;
   datas : any;
   check! : any;
-  constructor(private route:Router,private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute){}
+  constructor(public dialog: MatDialog,private route:Router,private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute){}
+  
   ngOnInit(): void {
     let  x   = localStorage.getItem('type')||2;
     if(x  == 0){
@@ -114,9 +118,16 @@ async submitForm() {
     alert("กรุณากรอกข้อมูลให้ครบ");
   } 
 }
-
+show() {
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.width = '500px'; // Set width
+  dialogConfig.height = '300px'; // Set height
+   this.dialog.open(ChangepassComponent, dialogConfig);
+  }
 
 back() {
   window.history.back();
 }  
+
+
 }

@@ -4,11 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { CommonModule } from '@angular/common';
 import { MatDialogRef } from '@angular/material/dialog';
-
+import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'app-changepass',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [MatButtonModule,ReactiveFormsModule,CommonModule],
   templateUrl: './changepass.component.html',
   styleUrl: './changepass.component.scss'
 })
@@ -51,7 +51,7 @@ export class ChangepassComponent  implements OnInit {
           alert("Update Successss");
         } 
         
-
+          
       } catch (error) {
         
       }
