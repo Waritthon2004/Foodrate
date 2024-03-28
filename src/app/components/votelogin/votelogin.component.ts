@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../../service/api.service';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MatDialogConfig } from '@angular/material/dialog';
 import {
   MatDialog,
@@ -21,7 +21,7 @@ import { LoaddingComponent } from '../loadding/loadding.component';
   imports: [MatIconModule,RouterModule,RouterLink,MatDialogActions,
     MatDialogClose,
     MatDialogTitle,
-    MatDialogContent,DialogComponent,LoaddingComponent],
+    MatDialogContent,DialogComponent,LoaddingComponent,CommonModule],
   templateUrl: './votelogin.component.html',
   styleUrl: './votelogin.component.scss'
 })

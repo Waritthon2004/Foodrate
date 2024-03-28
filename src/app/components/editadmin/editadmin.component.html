@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #f5f5ef">
+    <nav>
+      <div class="innav">
+        <div style="width: 15%; height: 10%">
+          <img
+            src="../../../assets/img/logo-modified.png"
+            alt=""
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div style="font-size: 2vw; font-weight: bolder">Admin : {{name}}</div>
+        <div class="img" style="background-image: url('{{ img }}');"></div>
+      </div>
+      <div class="btn">
+        <div style="width: 90%; display: flex; justify-content: end">
+          <!-- <a class="a1" href="">
+            <div class="ina">STATUS</div>
+          </a> -->
+
+          <a class="a2" routerLink="/standingAdmin"> <div class="ina">STANDING</div></a>
+        </div>
+        <div (click)="logout()" class="logout">
+          <mat-icon
+            style="font-size: 1.8vw"
+            class="login"
+            fontIcon="logout"
+          ></mat-icon>
+        </div>
+      </div>
+    </nav><main>
+        <div class="main" >
+            <div class="right">
+                <a class="back" style="cursor: pointer;" (click)="back()">BACK</a>
+                <div  class="titole">
+                    <h1 style="margin-right:5px;">A</h1>
+                    <h1 style="margin-right:5px;">B</h1>
+                    <h1 style="margin-right:5px;">O</h1>
+                    <h1 style="margin-right:5px;">U</h1>
+                    <h1 style="margin-right:5px;">T M</h1>
+                    <h1 style="margin-right:5px;">E</h1>
+                </div>
+                <div class="imgContain" style="height: 30%; width: 100%; display:flex; justify-content: center;">
+                    <div class="img" style="background-image: url('{{data[0]?.image}}');
+                    ">
+                    </div>
+                </div>
+                <div class="info" style="margin-top: 1.6vw; width: 100%; display: flex; justify-content: center;">
+                    <div class="detail">
+                        <h3>Name: {{data[0]?.Firstname}} <br><br> Surname: {{data[0]?.Lastname}}</h3><br>
+                        <h3>Email: {{data[0]?.Email}}</h3>
+                    </div>
+                </div>
+              
+            </div>
+            <div class="left">
+                <div class="carto">
+                    <form (ngSubmit)="submitForm()" [formGroup]="myform" class="form">
+                        <div >
+                            <div class="mb-3">
+                                <label for="name" class="form-label">NAME</label><br>
+                                <input class="input"  required="กรุณากรอกให้ครบ"  type="text" id="name" formControlName="Firstname" >
+                            </div>
+                           
+                            
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">LASTNAME</label>
+                            <input class="input" required="กรุณากรอกให้ครบ" type="text" formControlName="Lastname"  >
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">EMAIL</label><br>
+                                <input class="input"  required="กรุณากรอกให้ครบ"  type="text" formControlName="Email" >
+                            </div>
+                            <!-- <div class="mb-3">
+                                <label for="formFile" class="form-label">PASSWORD</label><br>
+                                <input class="input"   type="password" formControlName="Password" >
+                            </div> -->
+                           
+    
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">IMAGE</label>
+                                <input class="form-control"   type="file"    id="formFile" (change)="onFileChange($event)">
+                              </div>
+                           <div class="register">
+                            <button type="submit" style="padding: 1.9%; color: white; text-decoration: none; border-radius: 10px; background-color: #7C623D;">UPDATE</button>
+    
+                           </div>
+                        </div>
+                        
+                        
+                        
+                    </form>
+                   
+                </div>
+                
+            </div>
+        </div>
+    
+    </main>

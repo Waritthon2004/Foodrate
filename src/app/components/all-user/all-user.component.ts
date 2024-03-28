@@ -14,6 +14,7 @@ import { ApiService } from '../../service/api.service';
 export class AllUserComponent implements OnInit{
 
 
+
   img : any;
   users : any;
   count : any;
@@ -72,5 +73,8 @@ async page(page: any) {
     this.users =  await this.api.userpage(json);
     console.log(this.users);
     
+  }
+  next() {
+    this.route.navigate(['/editadmin']);
   }
 }
