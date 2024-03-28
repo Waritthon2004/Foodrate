@@ -176,10 +176,14 @@ public async getstandind() {
      }
 
  //getdelay
- public async getdelay(){
-  let url = this.constants.API_ENDPOINT+'/image/delay';
-    const response = await lastValueFrom(this.http.get(url));
+ public async getdelay(option?:any){
+  let url = this.constants.API_ENDPOINT+'/image/delayshow';
+    const response = await lastValueFrom(this.http.post(url,option));
   return response ;
  }
+
+
+
+   
 } 
 

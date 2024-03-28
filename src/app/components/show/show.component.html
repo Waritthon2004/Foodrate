@@ -1,20 +1,55 @@
-<main style="display: flex; justify-content: center; align-items: center;">
+<main style="display: flex; justify-content: center; align-items: center">
   <div>
-    <form style="border-radius: 6px; padding: 5px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); margin-top: 1.5vw; width: 100%; display: flex; justify-content: center;">
-      <label style="margin-top: 10px;" for="fname">Enter Delay :</label>
-      <input type="number" id="fname"  #delay name="delay"><br><br>
-      <button (click)="closeDialog()" type="submit" style=" box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); border: 2px solid #C18D68; font-weight: bold; border-radius: 10px; margin-left: 5px;background-color: #C18D68; color: rgb(242, 242, 242);" (click)="updatedelay(delay)">Enter</button>
+    <form
+      style="
+        border-radius: 6px;
+        padding: 5px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 1.5vw;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      <label style="margin-top: 10px" for="fname">Enter Delay :</label>
+      <input type="number" id="fname" #delay name="delay" /><br /><br />
+      <button
+        (click)="closeDialog()"
+        type="submit"
+        style="
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+          border: 2px solid #c18d68;
+          font-weight: bold;
+          border-radius: 10px;
+          margin-left: 5px;
+          background-color: #c18d68;
+          color: rgb(242, 242, 242);
+        "
+        (click)="updatedelay(delay)"
+      >
+        Enter
+      </button>
     </form>
-  
+
     <div>
-      <div style="width: 100%; display: flex; justify-content: center;"><h3>IMAGE DELAY NOW</h3></div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
-          <div *ngFor="let i of this.data">
-             <div style="width: 10vh; height: 10vh;border-radius: 10px; "> <img src="{{i.URL}}" alt="" width="100%" height="100%"></div>
-          </div>
+      <div style="width: 100%; display: flex; justify-content: center;align-items: flex-start;">
+        <h3>IMAGE DELAY {{this.k}} S NOW</h3>
       </div>
-    
+      <div style="display: flex ;justify-content: flex-start;">
+        <div *ngFor="let i of this.data;">
+          
+          <div style="margin-right: 2vh;">
+            <div *ngIf="i.time_diff_seconds >= 1;" style="width: 10vh; height: 10vh; border-radius: 10px">
+              <img src="{{ i.URL }}" alt="" width="100%" height="100%" />
+            </div>
+            <div *ngIf="i.time_diff_seconds >= 1 ">
+              TIME = {{ i.time_diff_seconds }} 's
+            </div>
+          </div>
+        
+        </div>
+        
+      </div>
     </div>
   </div>
- 
 </main>
