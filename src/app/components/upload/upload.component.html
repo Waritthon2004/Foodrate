@@ -45,14 +45,31 @@
 <main >
     <div class="edit" style=" width: 80%;">
         <div *ngFor="let item of img" class="edit1">
+          
             <div *ngIf="item.url!=null; else xxx"  class="img" style=" background-image: url({{item.url}})">
             </div>
-        <ng-template #xxx class="edit1">
-            <div  style="height:6.8vw; align-items: center; display: flex; justify-content: center;">
-                <input type="file" (change)="onChangeFile($event)">
+          
+            <div *ngIf="item.url!=null" style="height: 6.8vw; align-items: center; display: flex; justify-content: center;">
+              <label for="update_{{item.PID}}" style="cursor: pointer;">
+                <mat-icon>construction</mat-icon>
+                <input id="update_{{item.PID}}" type="file" style="display: none;" (change)="update($event,item.PID,item.UID)">
+              </label>
             </div>
             
+
+        <ng-template #xxx class="edit1">
+          <div style="width: 20vh; height: 20vh; display: flex; justify-content: center; align-items: center;">
+            <label for="upload" style="cursor: pointer;">
+              <mat-icon>cloud_download</mat-icon>
+              <input id="upload" type="file" style="display: none;" (change)="onChangeFile($event)">
+            </label>
+              
+          </div>
+
         </ng-template>
+        <div>
+          
+        </div>
         <div class="btn">
             <div *ngIf="item.url!=null; else xxx2"  class="point">
                 <h2>{{item.point}} point</h2> 
@@ -62,6 +79,7 @@
                     <h2>-</h2> 
                 </div>
             </ng-template>
+            
             <div class="edit2" (click)="delete(item.PID)" >
                     <h2>DELETE</h2>
             </div>

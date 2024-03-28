@@ -83,6 +83,16 @@ public async register(option : any) {
     const response = this.http.post(url,option).subscribe((res:any)=>{})
     return response;
   }
+
+
+    //Update to pictur
+    public UpdatePicture(option? : any,pid?:any,id?:any){
+      let url = this.constants.API_ENDPOINT + '/upload?id='+id+"&PID="+pid;
+      const response = this.http.put(url,option).subscribe((res:any)=>{})
+      return response;
+    }
+
+
   // get all user
   public async getUser(){
     let url = this.constants.API_ENDPOINT+'/user';

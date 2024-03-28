@@ -27,6 +27,7 @@ import { LoaddingComponent } from '../loadding/loadding.component';
   styleUrl: './upload.component.scss'
 })
 export class UploadComponent implements OnInit {
+
 img: any;
 data : any;
 id : any;
@@ -58,6 +59,8 @@ imgProfile = localStorage.getItem('img')
     try {
       const response = await this.api.getImageById(this.id);
       this.img = response; 
+      console.log(this.img);
+      
       if(this.img.length != 5){
         for(let i = this.img.length;i!=5;i++){
           this.img.push({url: null});
@@ -85,6 +88,27 @@ async delete(id: any) {
   });
 }
 
+async update(event: any,PID : any,UID :any) {
+  let dialogRef = this.dialog.open(LoaddingComponent, {
+    width: '250px',
+    height: '250px',
+  });
+  console.log(PID);
+  
+  const file  = event.target.files[0];
+  const formData = new FormData();
+
+  formData.append('file',file);
+  try {
+    await this.api.UpdatePicture(formData,PID,UID);
+  } catch (error) {
+    
+  }   
+  setTimeout(() => {
+    dialogRef.close();  
+    this.loadImageWithPopup();
+  }, 2000)
+  }
 
   // onChangeFile(event: any) {
   //   const file  = event.target.files[0];
