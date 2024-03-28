@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="innav" >
+          <a routerLink="/user"  style="width: 15%; height: 10%">
+            <img src="../../../assets/img/logo-modified.png" alt="" width="100%" height="100%" />
+          </a>
+          <div class="menu">
+            <div style=" color: beige;">USER: {{this.name}}</div>
+            <!-- <a routerLink="">YOUR STATUS</a>   -->
+            <a routerLink="/standing">STANDING</a>
+            <a routerLink="/upload">UPLOAD/EDIT</a>
+          </div>
+        </div>
+        <div class="innav2">
+          <!-- <a routerLink="/profile" style="background-image: url('{{imgProfile}}');
+          ">
+            
+          </a> -->
+          <div style="font-size: 3.5vw; font-weight: bold; color: black">|</div>
+          <div (click)="logout()">
+            <mat-icon class="login" 
+              fontIcon="logout"
+            ></mat-icon>
+          </div>
+        </div>
+      </nav>
+<header>
+    <main>
+        <div class="main" >
+            <div class="right">
+                <a class="back" style="cursor: pointer;" (click)="back()">BACK</a>
+                <div  class="titole">
+                    <h1 style="margin-right:5px;">U</h1>
+                    <h1 style="margin-right:5px;">S</h1>
+                    <h1 style="margin-right:5px;">E</h1>
+                    <h1 style="margin-right:5px;">R P</h1>
+                    <h1 style="margin-right:5px;">R</h1>
+                    <h1 style="margin-right:5px;">O</h1>
+                    <h1 style="margin-right:5px;">F</h1>
+                    <h1 style="margin-right:5px;">I</h1>
+                    <h1 style="margin-right:5px;">L</h1>
+                    <h1 style="margin-right:5px;">E</h1>
+                </div>
+                <div class="imgContain" style="height: 30%; width: 100%; display:flex; justify-content: center;">
+                    <div class="img2" style="background-image: url('{{data[0]?.image}}');
+                    ">
+                    </div>
+                </div>
+                <div class="info" style="margin-top: 1.6vw; width: 100%; display: flex; justify-content: center;">
+                    <div class="detail">
+                        <h3>Name: {{data[0]?.Firstname}} <br><br> Surname: {{data[0]?.Lastname}}</h3><br>
+                        <h3>Email: {{data[0]?.Email}}</h3>
+                    </div>
+                </div>
+              
+            </div>
+            <div class="left">
+                <div *ngIf="img?.length>0;else els" class="inleft">
+                    <div  class="con" *ngFor="let i of this.img; let index = index " style="display: flex; background-color: #f5f5ef">
+                        
+                        <div style="height: 100%; width: 20%; display: flex; justify-content: center; align-items: center;">
+                            <p style="margin-left: .5vw;">{{index+1}}.</p>
+                            <div class="img1" style="background-image: url('{{i.url}}');"></div>
+                      </div>
+                       
+                       
+                        <div style="margin-right: 1.8vw;">
+                           {{i.point}} คะแนน
+                        </div>
+                    
+                      </div>
+                      
+                </div>
+                <ng-template #els>
+                    <div style="font-size: 1.3vw; color: rgb(78, 75, 75); border: 1px solid gray;border-radius: 15px; width: 100%; display: flex; justify-content: center; height: 60%; align-items: center; ">
+                        This user has not uploaded any Picture.
+                    </div>
+                </ng-template>
+                
+                
+            </div>
+        </div>
+    
+    </main>

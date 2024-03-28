@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hammersmith+One&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hammersmith+One&family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Mega:wght@100..900&family=Roboto+Slab:wght@100..900&family=Sriracha&display=swap');
+
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: #c18d68;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Hammersmith One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.img {
+    width: 4.4vw;
+    border-radius: 50%;
+    height: 4.4vw;
+    background-position: center;
+    background-size: cover;
+}
+
+.innav {
+    width: 60%;
+    display: flex;
+    color: white;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2%;
+}
+
+.a1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    border-right: 2px solid black;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2vw;
+}
+
+.a2 {
+    font-size: 1.2vw;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    border-right: 2px solid black;
+}
+
+.ina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 80%;
+    width: 80%;
+    background-color: #6b4e28;
+}
+.back {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.back {
+    margin-top: 1.1vw;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.back a {
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 2vw;
+    display: flex;
+    align-items: center;
+    padding: 2.8%;
+    color: white;
+    background-color: #513D31;
+    height: 2vw;
+}
+
+.login {
+    font-size: 3vw;
+    width: 100%;
+    height: 100%;
+    margin-left: 1vw;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 90%;
+}
+
+.main {
+    display: flex;
+    width: 85%;
+}
+
+.right {
+    width: 50%;
+
+}
+
+.right a {
+    margin-left: 6%;
+    background-color: #513D31;
+    color: white;
+    padding: 1.2%;
+    text-decoration: none;
+    font-size: 1.3vw;
+    border-radius: 10px;
+
+}
+
+.logo {
+    margin-bottom: 1vw;
+}
+// .innav2 a{
+//     color: #513D31;
+//     text-decoration: none;
+// }
+// .innav2 a:hover{
+//     color: #513D31;
+// }
+.titole {
+    margin-top: 1%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 10vw;
+    font-family: "Hammersmith One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.titole h1 {
+    font-size: 3.5vw;
+    color: #6D5B47;
+}
+
+.title2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: "Lexend Mega", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.title2 h2 {
+    font-size: 1.8vw;
+}
+
+.left {
+    width: 50%;
+    align-items: center;
+    height: 100%;
+    display: flex; justify-content: center;
+    align-items: centers;
+}
+
+.carto {
+    width: 70%;
+    background-color: rgba(245, 245, 239, 0.8);
+    height: 75%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+label {
+    font-family: "Lexend Mega", sans-serif;
+}
+.img2 {
+    border-radius: 15px;
+    width: 40%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.3s ease; 
+}
+.inleft{
+    width: 95%;
+
+}
+.con{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top:1vw ;
+    height: 4.8vw;
+    border-radius: 15px;
+    align-items: center;
+}
+.img1 {
+    margin-left: .5vw;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10PX;
+    transition: .4s;
+    cursor: pointer;
+}
+.img1:hover{
+    transform: scale(1.05);
+}
+.btn {
+    height: 80%;
+    color: white;
+    margin-right: 2vw;
+    width: 18vw;
+    justify-content: space-between;
+    display: flex;
+}
