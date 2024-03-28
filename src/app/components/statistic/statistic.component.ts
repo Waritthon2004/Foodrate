@@ -19,7 +19,8 @@ export class StatisticComponent implements OnInit {
   data: any;
   x:any;
   constructor(private route:Router, private api : ApiService,private activeatedRoute: ActivatedRoute){
-  
+
+ 
   }
   back() {
     window.history.back();

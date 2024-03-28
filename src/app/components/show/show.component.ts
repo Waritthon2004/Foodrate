@@ -55,8 +55,16 @@ export class ShowComponent implements OnInit {
   }
   }
 updatedelay(delay: any) {
-  localStorage.setItem('Timedelay', delay.value);
-  this.closeDialog()
+  if(delay.value ){
+  
+    localStorage.setItem('Timedelay', delay.value);
+    this.closeDialog()
+    
+  }
+  else{
+    alert("PLS INPUT DELAY");
+    
+  }
 }
 
 }
