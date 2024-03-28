@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-infomation',
   standalone: true,
-  imports: [MatIcon,CommonModule],
+  imports: [MatIcon,CommonModule,RouterLink],
   templateUrl: './infomation.component.html',
   styleUrl: './infomation.component.scss'
 })
@@ -20,7 +20,7 @@ export class InfomationComponent {
   img :any;
   imgUser :any;
   name : any;
-
+  imgProfile = localStorage.getItem('img');
   constructor(private route : Router,private api:ApiService,private activedroute : ActivatedRoute ){}
   ngOnInit(): void {
     let  x   = localStorage.getItem('type')||2;

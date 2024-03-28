@@ -20,10 +20,7 @@
           </div>
         </div>
         <div class="innav2">
-          <a routerLink="/profile" style="background-image: url('{{imgProfile}}');
-          ">
-            
-          </a>
+          <a routerLink="/profile" style="background-image: url('{{imgProfile}}');"></a>
           <div style="font-size: 3.5vw; font-weight: bold; color: black">|</div>
           <div (click)="logout()">
             <mat-icon class="login" 
@@ -59,18 +56,18 @@
   <div style="width: 18%;">
     <div style="display: flex; width: 100%; height: 3.5vw;  border-top-left-radius:24px;    background-color:#efe6e0;
     ">
-      <div class="p2" style="background-image: url('{{this.image?.user1}}');
+      <a routerLink="/info" class="p2" style="background-image: url('{{this.image?.user1}}');
       background-position: center;
       background-size: cover;
       width: 3.5vw;
       border-radius: 50%;
       height: 100%;">
-      </div>
+      </a>
       <h3 style="margin-left: 1vw;">
         {{this.image?.name1}}
       </h3>
     </div>
-    <div class="img1" style="background-image: url({{this.image?.image1}});"(click)="open(1)">
+    <div  class="img1" style="background-image: url({{this.image?.image1}});"(click)="open(1)">
     </div>
   </div>
  
@@ -82,13 +79,13 @@
      background-color:#efe6e0;
     ">
    
-      <div class="p2" style="background-image: url('{{this.image?.user2}}');
+      <a routerLink="/info" class="p2" style="background-image: url('{{this.image?.user2}}');
       background-position: center;
       background-size: cover;
       width: 3.5vw;
       border-radius: 50%;
       height: 100%;">
-      </div>
+      </a>
       <h3 style="margin-left: 1vw;">
         {{this.image?.name2}}
       </h3>
