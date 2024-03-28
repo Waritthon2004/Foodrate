@@ -60,7 +60,7 @@ export class VoteloginComponent implements OnInit {
     localStorage.setItem('img',this.data[0].image);
     this.imgProfile = localStorage.getItem('img');
     this.name = localStorage.getItem('user');
-    console.log(localStorage.getItem('user'));
+    //console.log(localStorage.getItem('user'));
     
   }
   
@@ -75,8 +75,7 @@ export class VoteloginComponent implements OnInit {
       let x = localStorage.getItem('Timedelay');
       this.image = await this.api.getImage(x);
     } catch (error) {
-      console.error('Failed to load image:', error);
-      // Handle error (e.g., show error message)
+
     } finally {
         dialogRef.close();
     }
@@ -110,7 +109,6 @@ export class VoteloginComponent implements OnInit {
       point1: this.image.point1,
       point2: this.image.point2,
     };
-    console.log(json);
     this.remain= json;
     this.api.cal = await this.api.putPoint(json);
     this.dialog.open(DialogComponent);

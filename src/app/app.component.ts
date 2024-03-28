@@ -13,6 +13,7 @@ import { ApiService } from './service/api.service';
 export class AppComponent implements OnInit{
   
   title = 'Foodrate';
+  
   x : any;
   constructor(private api : ApiService){}
   ngOnInit(): void {
@@ -26,7 +27,6 @@ export class AppComponent implements OnInit{
   async check(){
      this.x = await this.api.checkday();
      if(this.x.do == "False"){
-      console.log("have day");
     }
     if(this.x.do == "True"){
       this.new();
