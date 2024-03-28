@@ -49,8 +49,7 @@ export class VotenologinComponent implements OnInit {
     try {
       this.image = await this.api.getImage(localStorage.getItem('Timedelay'));
     } catch (error) {
-      console.error('Failed to load image:', error);
-      // Handle error (e.g., show error message)
+
     } finally {
         dialogRef.close();
     }
