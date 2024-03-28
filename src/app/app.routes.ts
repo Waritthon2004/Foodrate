@@ -12,6 +12,7 @@ import { AllUserComponent } from './components/all-user/all-user.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { StandingAdminComponent } from './components/standing-admin/standing-admin.component';
 import { EditadminComponent } from './components/editadmin/editadmin.component';
+import { InfomationComponent } from './components/infomation/infomation.component';
 
 
 export const routes: Routes = [
@@ -28,4 +29,5 @@ export const routes: Routes = [
     {path:'userProfile/:id',component:UserProfileComponent},
     {path:'standingAdmin',component:StandingAdminComponent},
     {path:'editadmin',component:EditadminComponent},
+    {path:'info',component:InfomationComponent},
 ];
