@@ -4,14 +4,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import {
+  MatDialog,
+  MatDialogRef,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogConfig,
+} from '@angular/material/dialog';
+import { ChangepassComponent } from '../changepass/changepass.component';
 @Component({
   selector: 'app-my-profile',
   standalone: true,
-  imports: [MatIconModule,RouterLink,ReactiveFormsModule],
+  imports: [
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogTitle,
+    MatDialogContent,MatIconModule,RouterLink,ReactiveFormsModule],
   templateUrl: './my-profile.component.html',
   styleUrl: './my-profile.component.scss'
 })
 export class MyProfileComponent implements OnInit{
+
   name = localStorage.getItem('user');
   myform!: FormGroup;
   formData: FormData = new FormData();
@@ -19,7 +34,7 @@ export class MyProfileComponent implements OnInit{
   data : any;
   datas : any;
   check! : any;
-  constructor(private route : Router,private api:ApiService,private formBuilder:FormBuilder,private activedroute : ActivatedRoute ){}
+  constructor(public dialog: MatDialog,private route : Router,private api:ApiService,private formBuilder:FormBuilder ){}
    ngOnInit(): void {
     let  x   = localStorage.getItem('type')||2;
     if(x  == 1){
@@ -101,5 +116,11 @@ export class MyProfileComponent implements OnInit{
     localStorage.clear();
     this.route.navigate(['']);
   }
+  show() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '500px'; // Set width
+    dialogConfig.height = '300px'; // Set height
+     this.dialog.open(ChangepassComponent, dialogConfig);
+    }
 
 }

@@ -1,0 +1,16 @@
+<h3 style="width: 100%; display: flex; justify-content: center;">Change Password</h3>
+<main style="width: 100%; display: flex; justify-content: center;">
+    
+    <form (ngSubmit)="submitForm()" [formGroup]="myform" class="form">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Confirm Password</label><br />
+            <input style="width: 100%px" class="input" required="กรุณากรอกให้ครบ" type="password" formControlName="Password"  />
+          </div>
+        <div class="mb-3"  style="width: 70%;">
+            <label for="formFile" class="form-label">New Password</label><br />
+            <input class="input" required="กรุณากรอกให้ครบ" type="password" formControlName="Newpass"  />
+        </div>
+        <button>Change</button>
+    </form>
+
+</main>
