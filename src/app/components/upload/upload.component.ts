@@ -107,7 +107,8 @@ async update(event: any,PID : any,UID :any) {
   setTimeout(() => {
     dialogRef.close();  
     this.loadImageWithPopup();
-  }, 2000)
+    location.reload();
+  }, 2500)
   }
 
   // onChangeFile(event: any) {
@@ -132,6 +133,7 @@ async update(event: any,PID : any,UID :any) {
     setTimeout(() => {
       dialogRef.close();  
       this.loadImageWithPopup();
+      location.reload();
     }, 2000);
 
 }
@@ -142,5 +144,6 @@ async update(event: any,PID : any,UID :any) {
   logout() {
     localStorage.clear();
     this.route.navigate(['']);
+    
   }
 }

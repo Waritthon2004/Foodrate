@@ -193,6 +193,14 @@ public async getstandind() {
  }
 
 
+  //Change Pass
+  public async changePass(option?:any,id?:any){
+    let url = this.constants.API_ENDPOINT+'/user/password/'+id;
+      const response = await lastValueFrom(this.http.put(url,option));
+    return response ;
+   }
+  
+
 
    
 } 
