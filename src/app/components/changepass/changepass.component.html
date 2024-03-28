@@ -4,6 +4,7 @@
     <form (ngSubmit)="submitForm()" [formGroup]="myform" class="form">
         <div class="mb-3">
             <label for="formFile" class="form-label">Confirm Password</label><br />
+            <p *ngIf="ch == 1" style="color: red;">*Wrong password</p>
             <input style="width: 100%px" class="input" required="กรุณากรอกให้ครบ" type="password" formControlName="Password"  />
           </div>
         <div class="mb-3"  style="width: 70%;">

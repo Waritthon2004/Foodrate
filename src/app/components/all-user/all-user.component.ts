@@ -23,14 +23,14 @@ export class AllUserComponent implements OnInit{
   id:any;
   constructor(private route:Router,private api:ApiService){}
   ngOnInit(): void {
-    let  x   = localStorage.getItem('type')||2;
-    if(x  == 0){
-      this.route.navigate(['/user']);
-    }
-    else if(x == 2){
-      this.route.navigate(['']);
+    // let  x   = localStorage.getItem('type')||2;
+    // if(x  == 0){
+    //   this.route.navigate(['/user']);
+    // }
+    // else if(x == 2){
+    //   this.route.navigate(['']);
 
-    }
+    // }
     this.id = localStorage.getItem('id');
     this.count = [];
     this.getData(this.id);
