@@ -55,7 +55,7 @@
 
   <div style="width: 18%;" *ngIf="this.image.user1; else user1Block">
    
-    <div  style="display: flex; width: 100%; height: 3.5vw; border-top-left-radius:24px; background-color:#efe6e0;">
+    <div routerLink="/info/{{this.image?.UID2}}"  style="display: flex; width: 100%; height: 3.5vw; border-top-left-radius:24px; background-color:#efe6e0;">
       <div class="p2" style="background-image: url('{{this.image?.user1}}');
         background-position: center;
         background-size: cover;
